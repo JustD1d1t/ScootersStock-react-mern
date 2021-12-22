@@ -1,0 +1,23 @@
+@import "../../../variables";
+.button {
+  font: inherit;
+  padding: 1rem 4.5rem;
+  border: 1px solid $secondary-color;
+  background: $secondary-color;
+  color: $primary-color;
+  cursor: pointer;
+  box-shadow: 0px 8px 19px #e0e0e0;
+  border-radius: 2.25rem;
+  font-size: $xs-font-size-desktop;
+  display: block;
+  &--inverse {
+    background-color: white;
+    color: $primary-color;
+  }
+  &--small {
+    font-size: $xxs-font-size-desktop;
+  }
+  &--big {
+    font-size: $s-font-size-desktop;
+  }
+}

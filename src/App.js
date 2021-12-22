@@ -5,6 +5,8 @@ import {
   Switch,
 } from "react-router-dom";
 
+import MainPage from "./pages/main/MainPage";
+
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import ContentWrapper from "./shared/components/ContentWrapper/ContentWrapper";
 
@@ -13,7 +15,10 @@ const App = () => {
     <>
       <Router>
         <ContentWrapper>
-          <MainNavigation></MainNavigation>
+          <MainNavigation />
+          <Route path="/" exact>
+            <MainPage />
+          </Route>
         </ContentWrapper>
       </Router>
     </>
