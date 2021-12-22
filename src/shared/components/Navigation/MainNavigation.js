@@ -12,10 +12,12 @@ import SVGComponentUser from "../svgComponents/SVGComponentUser";
 
 const MainNavigation = () => {
   const [sidedrawerVisible, setSidedrawerVisible] = useState(false);
+  const body = document.querySelector("body");
   const handleSideDraw = (e) => {
     const hamburger = document.querySelector(".main-navigation__menu-btn");
     hamburger.classList.toggle("is-active");
     setSidedrawerVisible(!sidedrawerVisible);
+    body.classList.toggle("hide-overflow");
   };
 
   return (
@@ -29,24 +31,32 @@ const MainNavigation = () => {
           <NavLink to="/">Contacts</NavLink>
           <NavLink to="/">About us</NavLink>
         </div>
-        <a href="/" className="main-navigation__logo">
+        <a
+          href="/"
+          className="main-navigation__logo"
+          aria-label="Strona główna"
+        >
           <img src={logo} alt="" />
         </a>
         <div className="main-navigation__icons">
-          <a href="tel:+48730795875">
+          <a href="tel:+48730795875" aria-label="Kontakt telefoniczny">
             <SVGComponentPhone />
           </a>
-          <a href="/">
+          <a href="/" aria-label="Konto użytkownika">
             <SVGComponentUser />
           </a>
-          <a href="/">
+          <a href="/" aria-label="Ulubione">
             <SVGComponentHeart />
           </a>
-          <a href="/">
+          <a href="/" aria-label="Koszyk">
             <SVGComponentCart />
           </a>
         </div>
-        <button className="main-navigation__menu-btn" onClick={handleSideDraw}>
+        <button
+          className="main-navigation__menu-btn"
+          onClick={handleSideDraw}
+          aria-label="Open sidedrawer menu"
+        >
           <span></span>
           <span></span>
           <span></span>
