@@ -1,0 +1,39 @@
+@import "../../../variables";
+.side-drawer {
+  position: fixed;
+  left: 0%;
+  top: 0;
+  z-index: 100;
+  height: 100vh;
+  width: 75%;
+  max-width: 400px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  display: flex;
+  justify-content: center;
+  @media screen and(min-width: $desktop-breakpoint) {
+    display: none;
+  }
+  &__navigation {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+  &__links {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > a {
+      padding: 0.75rem 0;
+    }
+  }
+  &__bottom {
+    display: flex;
+    align-self: stretch;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}

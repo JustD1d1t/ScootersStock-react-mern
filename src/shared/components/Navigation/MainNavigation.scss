@@ -1,0 +1,104 @@
+@import "../../../variables";
+.main-navigation {
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  @media screen and(min-width:$desktop-breakpoint) {
+    height: 7rem;
+  }
+  &__links {
+    display: none;
+    flex-grow: 1;
+    @media screen and(min-width: $desktop-breakpoint) {
+      display: flex;
+    }
+    a {
+      padding: 0 2rem;
+      font-size: $m-font-size;
+    }
+  }
+  &__icons {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+    @media screen and(min-width: 1439px) {
+      display: flex;
+    }
+    a {
+      padding: 0 1rem;
+      font-size: $m-font-size;
+    }
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    transition: transform 0.15s linear;
+    @media screen and(min-width: $desktop-breakpoint) {
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+  &__menu-btn {
+    background-color: transparent;
+    border: none;
+    display: block;
+    @media screen and(min-width: $desktop-breakpoint) {
+      display: none;
+    }
+    &.is-active {
+      transition: all 0.2s ease-in-out;
+      transition-delay: 0.2s;
+      transform: rotate(45deg);
+      & span:nth-child(2) {
+        width: 0px;
+      }
+      & span:nth-child(1),
+      & span:nth-child(3) {
+        transition-delay: 0.2s;
+      }
+      & span:nth-child(1) {
+        transform: translateY(13px);
+      }
+      & span:nth-child(3) {
+        transform: translateY(-6px) rotate(90deg);
+      }
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    & > span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      margin: 6px auto;
+      background-color: black;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.slide-in-left-enter {
+  transform: translateX(-100%);
+}
+
+.slide-in-left-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 400ms;
+}
+
+.slide-in-left-exit {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.slide-in-left-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 400ms;
+}
