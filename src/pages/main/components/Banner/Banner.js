@@ -1,8 +1,8 @@
 import React from "react";
 
-import Button from "../../shared/components/Button/Button";
-import banerLogo from "../../static/img/banner_scooters.png";
-import banerLogoMobile from "../../static/img/banner_scooters--mobile.png";
+import Button from "../../../../shared/components/Button/Button";
+import banerLogo from "../../../../static/img/banner_scooters.png";
+import banerLogoMobile from "../../../../static/img/banner_scooters--mobile.png";
 
 import "./Banner.scss";
 

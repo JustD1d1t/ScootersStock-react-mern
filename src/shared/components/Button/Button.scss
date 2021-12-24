@@ -1,15 +1,19 @@
 @import "../../../variables";
 .button {
   font: inherit;
-  padding: 1rem 4.5rem;
+  padding: 1rem 2.5rem;
   border: 1px solid $secondary-color;
   background: $secondary-color;
   color: $primary-color;
   cursor: pointer;
   box-shadow: 0px 8px 19px #e0e0e0;
-  border-radius: 2.25rem;
-  font-size: $xs-font-size-desktop;
+  border-radius: 2rem;
+  font-size: $xs-font-size-mobile;
   display: block;
+  @media screen and(min-width: $medium-breakpoint) {
+    font-size: $xs-font-size-desktop;
+    padding: 1rem 4.5rem;
+  }
   &--inverse {
     background-color: white;
     color: $primary-color;
