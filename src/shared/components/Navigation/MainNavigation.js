@@ -31,26 +31,26 @@ const MainNavigation = () => {
           <NavLink to="/">Contacts</NavLink>
           <NavLink to="/">About us</NavLink>
         </div>
-        <a
-          href="/"
+        <NavLink
+          to="/"
           className="main-navigation__logo"
           aria-label="Strona główna"
         >
           <img src={logo} alt="" />
-        </a>
+        </NavLink>
         <div className="main-navigation__icons">
           <a href="tel:+48730795875" aria-label="Kontakt telefoniczny">
             <SVGComponentPhone />
           </a>
-          <a href="/" aria-label="Konto użytkownika">
+          <NavLink to="/" aria-label="Konto użytkownika">
             <SVGComponentUser />
-          </a>
-          <a href="/" aria-label="Ulubione">
+          </NavLink>
+          <NavLink to="/" aria-label="Ulubione">
             <SVGComponentHeart />
-          </a>
-          <a href="/" aria-label="Koszyk">
+          </NavLink>
+          <NavLink to="/" aria-label="Koszyk">
             <SVGComponentCart />
-          </a>
+          </NavLink>
         </div>
         <button
           className="main-navigation__menu-btn"

@@ -29,18 +29,18 @@ const SideDrawer = (props) => {
           </div>
 
           <div className="side-drawer__bottom">
-            <a href="tel:+48730795875">
+            <a href="tel:+48730795875" aria-label="Kontakt telefoniczny">
               <SVGComponentPhone />
             </a>
-            <a href="/">
+            <NavLink to="/" aria-label="Konto użytkownika">
               <SVGComponentUser />
-            </a>
-            <a href="/">
+            </NavLink>
+            <NavLink to="/" aria-label="Ulubione">
               <SVGComponentHeart />
-            </a>
-            <a href="/">
+            </NavLink>
+            <NavLink to="/" aria-label="Koszyk">
               <SVGComponentCart />
-            </a>
+            </NavLink>
           </div>
         </div>
       </aside>
