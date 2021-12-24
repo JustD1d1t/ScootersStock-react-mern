@@ -2,6 +2,7 @@ import React from "react";
 
 import Button from "../../shared/components/Button/Button";
 import banerLogo from "../../static/img/banner_scooters.png";
+import banerLogoMobile from "../../static/img/banner_scooters--mobile.png";
 
 import "./Banner.scss";
 
@@ -16,7 +17,10 @@ const Banner = (props) => {
         <Button type="button">Shop now</Button>
       </div>
       <div className="banner__image">
-        <img src={banerLogo} alt="" />
+        <picture>
+          <source srcset={banerLogo} media="(min-width: 640px)" />
+          <img src={banerLogoMobile} alt="" />
+        </picture>
       </div>
     </div>
   );
