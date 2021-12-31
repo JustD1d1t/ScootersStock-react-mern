@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import MainPage from "./pages/main/MainPage";
+import CatalogPage from "./pages/catalog/CatalogPage";
 
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import ContentWrapper from "./shared/components/ContentWrapper/ContentWrapper";
@@ -19,6 +20,9 @@ const App = () => {
           <MainNavigation />
           <Route path="/" exact>
             <MainPage />
+          </Route>
+          <Route path="/catalog" exact>
+            <CatalogPage />
           </Route>
           <Footer />
         </ContentWrapper>
