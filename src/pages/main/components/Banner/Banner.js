@@ -18,7 +18,7 @@ const Banner = (props) => {
       </div>
       <div className="banner__image">
         <picture>
-          <source srcset={banerLogo} media="(min-width: 640px)" />
+          <source srcSet={banerLogo} media="(min-width: 640px)" />
           <img src={banerLogoMobile} alt="" />
         </picture>
       </div>

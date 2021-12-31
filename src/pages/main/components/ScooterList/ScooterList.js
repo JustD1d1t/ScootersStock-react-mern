@@ -105,8 +105,9 @@ const DUMMY_SCOOTERS_MAIN = [
 ];
 
 const ScooterList = (props) => {
-  const scooters = DUMMY_SCOOTERS_MAIN.map((scooter) => (
+  const scooters = DUMMY_SCOOTERS_MAIN.map((scooter, id) => (
     <ScooterItem
+      key={id}
       name={scooter.name}
       img={scooter.img}
       description={scooter.description}
