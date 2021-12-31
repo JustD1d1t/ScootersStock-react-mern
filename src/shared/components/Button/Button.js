@@ -31,7 +31,6 @@ const Button = (props) => {
   }
   return (
     <>
-      {props.inverse}
       <button
         className={`button button--${props.size || "default"} ${
           props.inverse && "button--inverse"

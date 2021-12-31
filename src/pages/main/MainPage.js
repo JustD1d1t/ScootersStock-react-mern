@@ -1,6 +1,7 @@
 import React from "react";
 
 import Banner from "./components/Banner/Banner";
+import ScooterList from "./components/ScooterList/ScooterList";
 
 import Box from "../../static/img/about/Box.png";
 import Card from "../../static/img/about/Card.png";
@@ -54,6 +55,7 @@ const MainPage = () => {
           </div>
         </div>
       </div>
+      <ScooterList />
     </>
   );
 };
