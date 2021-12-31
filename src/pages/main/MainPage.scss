@@ -2,24 +2,24 @@
 .about {
   text-align: center;
   &__title {
-    font-size: $m-font-size-mobile;
+    font-size: $l-font-size-mobile;
     margin-bottom: 2rem;
     @media screen and(min-width: $medium-breakpoint) {
-      font-size: $m-font-size-desktop;
+      font-size: $l-font-size-desktop;
     }
   }
   &__subtitle {
-    font-size: $xs-font-size-mobile;
+    font-size: $s-font-size-mobile;
     margin-bottom: 1.5rem;
     @media screen and(min-width: $medium-breakpoint) {
-      font-size: $xs-font-size-desktop;
+      font-size: $s-font-size-desktop;
     }
   }
   &__description {
-    font-size: $xxs-font-size-mobile;
+    font-size: $xs-font-size-mobile;
     line-height: 2;
     @media screen and(min-width: $medium-breakpoint) {
-      font-size: $xxs-font-size-desktop;
+      font-size: $xs-font-size-desktop;
     }
   }
   &__icons {
