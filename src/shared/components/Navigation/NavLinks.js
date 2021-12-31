@@ -7,7 +7,7 @@ const NavLinks = (props) => {
   return (
     <ul className="nav-links">
       <li>
-        <NavLink to="/" exact>
+        <NavLink to="/catalog" exact>
           Catalog
         </NavLink>
       </li>

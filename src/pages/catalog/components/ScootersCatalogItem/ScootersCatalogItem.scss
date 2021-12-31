@@ -1,0 +1,65 @@
+@import "../../../../variables";
+.scooters {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $primary-color;
+    padding: 1rem;
+  }
+  &__favorite {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__image {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    .scooters__add-to-cart {
+      background-color: transparent;
+      border: none;
+      justify-self: end;
+    }
+  }
+  &__name {
+    font-size: $xs-font-size-desktop;
+    margin-bottom: 0.5rem;
+  }
+  &__colors {
+    display: flex;
+  }
+  &__color {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin: 0.5rem;
+    position: relative;
+    border: 1px solid $primary-color;
+    cursor: pointer;
+    &:first-of-type:after {
+      content: "";
+      position: absolute;
+      display: block;
+      left: 11px;
+      top: 6px;
+      width: 5px;
+      height: 12px;
+      border: solid $secondary-color;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+  &__price {
+    align-self: center;
+    justify-self: end;
+    font-size: $xs-font-size-desktop;
+  }
+}

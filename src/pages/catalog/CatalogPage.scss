@@ -1,0 +1,10 @@
+@import "../../variables";
+.catalog {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-gap: 2%;
+  grid-template-rows: auto;
+  @media screen and(min-width: $large-breakpoint) {
+    grid-template-columns: 15% 83%;
+  }
+}
