@@ -14,7 +14,7 @@
   &:hover {
     box-shadow: 0 6px 10px 1px rgba(0, 0, 0, 0.2);
   }
-  @media screen and(min-width: $medium-breakpoint) {
+  @media screen and(min-width: $large-breakpoint) {
     font-size: $s-font-size-desktop;
     padding: 1rem 3.5rem;
   }
@@ -23,15 +23,24 @@
     color: $primary-color;
   }
   &--xsmall {
-    font-size: $xxs-font-size-desktop;
+    font-size: $xxs-font-size-mobile;
     padding: 0.5rem 1.5rem;
+    @media screen and(min-width: $large-breakpoint) {
+      font-size: $xxs-font-size-desktop;
+    }
   }
   &--small {
-    font-size: $xs-font-size-desktop;
+    font-size: $xs-font-size-mobile;
     padding: 0.75rem 2.5rem;
+    @media screen and(min-width: $large-breakpoint) {
+      font-size: $xs-font-size-desktop;
+    }
   }
   &--big {
-    font-size: $m-font-size-desktop;
+    font-size: $m-font-size-mobile;
     padding: 0.75rem 4.5rem;
+    @media screen and(min-width: $large-breakpoint) {
+      font-size: $m-font-size-desktop;
+    }
   }
 }
