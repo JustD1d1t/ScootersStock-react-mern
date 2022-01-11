@@ -6,9 +6,10 @@ const ScootersList = (props) => {
   const [status, setStatus] = useState("active");
   const toInActive = () => setStatus("inActive");
   const toActive = () => setStatus("active");
-  const scooters = props.scooters.map((scooter, id) => (
+  const scooters = props.scooters.map((scooter) => (
     <ScootersCatalogItem
-      key={id}
+      key={scooter.id}
+      id={scooter.id}
       name={scooter.name}
       price={scooter.price}
       image={scooter.image}

@@ -6,7 +6,8 @@ import {
 } from "react-router-dom";
 
 import MainPage from "./pages/main/MainPage";
-import CatalogPage from "./pages/catalog/CatalogPage";
+import CatalogPage from "./pages/scooters/CatalogPage";
+import ScooterPage from "./pages/scooters/ScooterPage";
 
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import ContentWrapper from "./shared/components/ContentWrapper/ContentWrapper";
@@ -21,8 +22,11 @@ const App = () => {
           <Route path="/" exact>
             <MainPage />
           </Route>
-          <Route path="/catalog" exact>
+          <Route path="/scooters" exact>
             <CatalogPage />
+          </Route>
+          <Route path="/scooters/:id" exact>
+            <ScooterPage />
           </Route>
           <Footer />
         </ContentWrapper>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./ScootersCatalogItem.scss";
 
 import SVGComponentHeart from "../../../../shared/components/svgComponents/SVGComponentHeart";
@@ -9,9 +11,11 @@ const ScootersCatalogItem = (props) => {
       <div className="scooters__favorite">
         <SVGComponentHeart />
       </div>
-      <div className="scooters__image">
-        <img src={props.image} alt="" />
-      </div>
+      <Link to={`/scooters/${props.id}`}>
+        <div className="scooters__image">
+          <img src={props.image} alt="" />
+        </div>
+      </Link>
       <div className="scooters__details">
         <div>
           <p className="scooters__name">{props.name}</p>

@@ -25,7 +25,7 @@ const MainNavigation = () => {
       <SideDrawer show={sidedrawerVisible} />
       <div className="main-navigation">
         <div className="main-navigation__links">
-          <NavLink to="/catalog" exact>
+          <NavLink to="/scooters" exact>
             Catalog
           </NavLink>
           <NavLink to="/">Contacts</NavLink>
