@@ -5,6 +5,7 @@
   grid-row-gap: 30px;
   margin-bottom: 4rem;
   @media screen and(min-width: $large-breakpoint) {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 370px));
+    grid-template-rows: 480px;
   }
 }

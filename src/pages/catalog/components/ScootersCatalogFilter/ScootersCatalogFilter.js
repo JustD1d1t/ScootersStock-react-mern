@@ -38,7 +38,7 @@ const DUMMY_FILTERS = [
   },
 ];
 
-const ScootersCatalogFilter = () => {
+const ScootersCatalogFilter = (props) => {
   const openFilterGroup = (event) => {
     event.target.nextElementSibling.classList.toggle("open");
   };
@@ -46,6 +46,15 @@ const ScootersCatalogFilter = () => {
   const openFiltersContainer = (event) => {
     event.stopPropagation();
     event.target.nextElementSibling.classList.toggle("open");
+  };
+
+  const filterScooters = (event) => {
+    const filter = event.target;
+    props.filterScooters({
+      type: "FILTER",
+      group: filter.dataset.group,
+      name: filter.name,
+    });
   };
 
   const filters = DUMMY_FILTERS.map((filter, id) => {
@@ -62,7 +71,13 @@ const ScootersCatalogFilter = () => {
               className="catalog__filter-category"
             >
               {category}
-              <input type="checkbox" id={category} name={category} />
+              <input
+                type="checkbox"
+                id={category}
+                name={category}
+                data-group={filter.header}
+                onChange={filterScooters}
+              />
               <span className="checkmark"></span>
             </label>
           ))}
