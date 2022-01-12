@@ -21,7 +21,7 @@ const SideDrawer = (props) => {
       <aside className="side-drawer">
         <div className="side-drawer__navigation">
           <div className="side-drawer__links">
-            <NavLink to="/" exact>
+            <NavLink to="/scooters" exact>
               Catalog
             </NavLink>
             <NavLink to="/">Contacts</NavLink>
