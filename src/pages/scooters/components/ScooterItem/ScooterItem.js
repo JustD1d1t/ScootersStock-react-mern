@@ -1,5 +1,4 @@
 import "./ScooterItem.scss";
-import { Link } from "react-router-dom";
 import Button from "../../../../shared/components/Button/Button";
 
 import SVGComponentStar from "../../../../shared/components/svgComponents/SVGComponentStar";
@@ -77,18 +76,24 @@ const ScooterItem = (props) => {
       <div className="scooter-item__section-title">
         <h2 id="shipping">Shipping rates</h2>
       </div>
-      <table class="scooter-item__shippings">
-        <tr>
-          {scooter["Delivery Date"].map((delivery) => (
-            <th>{delivery.country}</th>
-          ))}
-        </tr>
-        <tr>
-          {scooter["Delivery Date"].map((delivery) => (
-            <td>{delivery.time}</td>
-          ))}
-        </tr>
-      </table>
+      <div className="scooter-item__shippings">
+        <table>
+          <thead>
+            <tr>
+              {scooter["Delivery Date"].map((delivery, id) => (
+                <th key={id}>{delivery.country}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {scooter["Delivery Date"].map((delivery, id) => (
+                <td key={id}>{delivery.time}</td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

@@ -2,8 +2,15 @@
 @import "../../../../mixins";
 .scooter-item {
   display: grid;
-  grid-template-columns: 50% 50%;
+  @media screen and(min-width: $medium-breakpoint) {
+    grid-template-rows: auto;
+    grid-template-columns: 50% 50%;
+  }
   &__image {
+    grid-column: 1 / span 2;
+    @media screen and(min-width: $medium-breakpoint) {
+      grid-column: 1;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -11,13 +18,23 @@
     }
   }
   &__details {
+    grid-column: 1 / span 2;
     padding: 2rem;
+    @media screen and(min-width: $medium-breakpoint) {
+      grid-column: 2;
+    }
   }
   &__name {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+
     margin-bottom: 1rem;
+    @media screen and(min-width: $medium-breakpoint) {
+      flex-direction: row;
+      align-items: flex-end;
+    }
     h1 {
       font-size: $m-font-size-desktop;
       font-weight: 600;
@@ -26,31 +43,56 @@
       font-size: $s-font-size-desktop;
     }
   }
+  &__rate {
+    text-align: center;
+    @media screen and(min-width: $medium-breakpoint) {
+      text-align: left;
+    }
+  }
   &__colors {
     display: flex;
+    justify-content: center;
+    @media screen and(min-width: $medium-breakpoint) {
+      justify-content: flex-start;
+    }
   }
   &__color {
     @include scooter-color;
   }
   &__description {
-    font-size: $xs-font-size-desktop;
     letter-spacing: 2px;
+    font-size: $xs-font-size-mobile;
+    text-align: center;
+    @media screen and(min-width: $medium-breakpoint) {
+      text-align: left;
+    }
+    @media screen and(min-width: $large-breakpoint) {
+      font-size: $xs-font-size-desktop;
+    }
   }
   &__scroll-to {
     font-size: $xs-font-size-desktop;
     display: block;
-    margin: 0.5rem 0;
+
     text-decoration: underline;
     background-color: transparent;
     border: none;
     font-weight: bold;
     transition: color 0.15s linear;
+    margin: 0.5rem auto;
+    cursor: pointer;
+    @media screen and(min-width: $medium-breakpoint) {
+      margin: 0.5rem 0;
+    }
     &:hover {
       color: $secondary-color;
     }
   }
   .button {
-    margin-left: auto;
+    margin: 1rem auto;
+    @media screen and(min-width: $medium-breakpoint) {
+      margin-right: 0;
+    }
   }
   &__section-title {
     width: 100%;
@@ -82,10 +124,16 @@
   }
   &__shippings {
     grid-column: 1 / span 2;
-    width: 80%;
     margin: 2rem auto;
-    border: 1px solid black;
-    border-collapse: collapse;
+    width: 90vw;
+    overflow-x: auto;
+    @media screen and(min-width: $medium-breakpoint) {
+      width: auto;
+    }
+    table {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
     th {
       padding: 1rem 2rem;
     }
