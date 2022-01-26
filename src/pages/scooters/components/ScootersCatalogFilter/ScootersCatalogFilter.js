@@ -50,11 +50,7 @@ const ScootersCatalogFilter = (props) => {
 
   const filterScooters = (event) => {
     const filter = event.target;
-    props.filterScooters({
-      type: "FILTER",
-      group: filter.dataset.group,
-      name: filter.name,
-    });
+    props.filterScooters(filter.dataset.group, filter.name);
   };
 
   const filters = DUMMY_FILTERS.map((filter, id) => {

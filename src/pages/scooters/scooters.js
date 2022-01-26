@@ -14,7 +14,7 @@ import White from "../../static/img/scooters/catalog/White.png";
 export const DUMMY_SCOOTERS = [
   {
     name: "GT 50 AC",
-    price: "3455,99 zł",
+    price: 3455.99,
     image: orange,
     colors: ["orange", "blue"],
     rate: 24,
@@ -49,7 +49,7 @@ export const DUMMY_SCOOTERS = [
   },
   {
     name: "ARS 770S",
-    price: "5499 zł",
+    price: 5499,
     image: black,
     colors: ["black", "blue"],
     rate: 10,
@@ -84,7 +84,7 @@ export const DUMMY_SCOOTERS = [
   },
   {
     name: "HY 888Y",
-    price: "3799 zł",
+    price: 3799,
     image: blueWhiteCustom,
     colors: ["blue", "white"],
     rate: 16,
@@ -119,7 +119,7 @@ export const DUMMY_SCOOTERS = [
   },
   {
     name: "TG 300S LC",
-    price: "3455,99 zł",
+    price: 3455.99,
     image: green2,
     colors: ["green", "orange"],
     rate: 12,
@@ -154,7 +154,7 @@ export const DUMMY_SCOOTERS = [
   },
   {
     name: "TG 125S LC",
-    price: "9077 zł",
+    price: 9077,
     image: green,
     colors: ["green", "blue"],
     rate: 18,
@@ -189,7 +189,7 @@ export const DUMMY_SCOOTERS = [
   },
   {
     name: "GP 125 LC",
-    price: "9899 zł",
+    price: 9899,
     image: orange2,
     colors: ["orange", "blue"],
     rate: 10,
@@ -224,7 +224,7 @@ export const DUMMY_SCOOTERS = [
   },
   {
     name: "GP 200 LC",
-    price: "9998,99 zł",
+    price: 9998.99,
     image: redWhite,
     colors: ["red", "white"],
     rate: 11,
@@ -259,7 +259,7 @@ export const DUMMY_SCOOTERS = [
   },
   {
     name: "Custom Paint",
-    price: "11999 zł",
+    price: 11999,
     image: redIvory125cc,
     colors: ["red", "blue"],
     rate: 17,
@@ -294,7 +294,7 @@ export const DUMMY_SCOOTERS = [
   },
   {
     name: "GT 125i AC",
-    price: "3699 zł",
+    price: 3699,
     image: RoyalAlloyGP200LCRed,
     colors: ["orange", "green"],
     rate: 19,
@@ -329,7 +329,7 @@ export const DUMMY_SCOOTERS = [
   },
   {
     name: "GT 150 AC",
-    price: "6529,99 zł",
+    price: 6529.99,
     image: UltraBlueIvory125cc,
     colors: ["blue", "pink"],
     rate: 23,
@@ -364,7 +364,7 @@ export const DUMMY_SCOOTERS = [
   },
   {
     name: "GP 125 HX",
-    price: "6199,99 zł",
+    price: 6199.99,
     image: White2,
     colors: ["purple", "blue"],
     rate: 17,
@@ -399,7 +399,7 @@ export const DUMMY_SCOOTERS = [
   },
   {
     name: "GT 50 WP",
-    price: "3699,99 zł",
+    price: 3699.99,
     image: White,
     colors: ["green", "blue"],
     rate: 13,

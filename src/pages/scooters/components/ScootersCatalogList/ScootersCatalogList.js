@@ -1,11 +1,7 @@
 import ScootersCatalogItem from "../ScootersCatalogItem/ScootersCatalogItem";
 import "./ScootersCatalogList.scss";
-import { useState } from "react";
 
 const ScootersList = (props) => {
-  const [status, setStatus] = useState("active");
-  const toInActive = () => setStatus("inActive");
-  const toActive = () => setStatus("active");
   const scooters = props.scooters.map((scooter) => (
     <ScootersCatalogItem
       key={scooter.id}
