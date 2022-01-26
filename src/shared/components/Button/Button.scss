@@ -13,6 +13,7 @@
   transition: box-shadow 0.3s ease-in-out;
   &:hover {
     box-shadow: 0 6px 10px 1px rgba(0, 0, 0, 0.2);
+    color: $primary-color;
   }
   @media screen and(min-width: $large-breakpoint) {
     font-size: $s-font-size-desktop;

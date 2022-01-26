@@ -38,7 +38,7 @@ const SideDrawer = (props) => {
             <NavLink to="/" aria-label="Ulubione">
               <SVGComponentHeart />
             </NavLink>
-            <NavLink to="/" aria-label="Koszyk">
+            <NavLink to="/cart" aria-label="Koszyk">
               <SVGComponentCart />
             </NavLink>
           </div>

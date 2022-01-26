@@ -14,7 +14,9 @@ const Banner = (props) => {
         <p className="banner__content">
           Online vintage and electric scooters shop
         </p>
-        <Button type="button">Shop now</Button>
+        <Button type="button" to="/scooters">
+          Shop now
+        </Button>
       </div>
       <div className="banner__image">
         <picture>

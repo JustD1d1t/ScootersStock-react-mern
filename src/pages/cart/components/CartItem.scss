@@ -1,0 +1,68 @@
+@import "../../../variables";
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: $desktop-breakpoint) {
+    flex-direction: row;
+  }
+  &__image {
+    @media screen and(min-width: $desktop-breakpoint) {
+      width: 30%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__title {
+    font-size: $m-font-size-desktop;
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+  }
+  &__amount {
+    padding: 1rem;
+    font-size: $m-font-size-mobile;
+  }
+  &__amount-container {
+    display: flex;
+    padding: 0 0.5rem;
+    @media screen and(min-width: $desktop-breakpoint) {
+      min-width: 250px;
+      padding: 0 2rem;
+    }
+  }
+  &__amount-button {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem;
+    font-size: $m-font-size-mobile;
+    cursor: pointer;
+    @media screen and(min-width: $desktop-breakpoint) {
+      padding: 1rem;
+    }
+  }
+  &__summary {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    @media screen and(min-width: $desktop-breakpoint) {
+      justify-content: flex-end;
+      padding: 3rem;
+    }
+  }
+  &__price {
+    padding: 1rem;
+    font-size: $m-font-size-mobile;
+    text-align: right;
+    @media screen and(min-width: $desktop-breakpoint) {
+      font-size: $m-font-size-desktop;
+      min-width: 250px;
+    }
+  }
+}

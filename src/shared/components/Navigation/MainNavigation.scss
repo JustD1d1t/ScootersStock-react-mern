@@ -107,3 +107,29 @@
   opacity: 0;
   transition: all 400ms;
 }
+
+.grow-up-enter {
+  transform: scale(1);
+}
+
+.grow-up-enter-active {
+  transform: scale(1.6);
+  transition: all 400ms;
+}
+.grow-up-enter-done {
+  transform: scale(1);
+  transition: all 400ms;
+}
+
+.grow-up-exit {
+  transform: scale(1);
+}
+
+.grow-up-exit-active {
+  transform: scale(1.6);
+  transition: all 400ms;
+}
+.grow-up-exit-done {
+  transform: scale(1);
+  transition: all 400ms;
+}

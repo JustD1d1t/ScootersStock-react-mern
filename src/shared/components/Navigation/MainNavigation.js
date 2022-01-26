@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import SideDrawer from "./SideDrawer";
 import React, { useState } from "react";
+import { CSSTransition } from "react-transition-group";
+import { useSelector } from "react-redux";
 
 import logo from "../../../static/img/LogoScooters.png";
 
@@ -11,8 +13,11 @@ import SVGComponentPhone from "../svgComponents/SVGComponentPhone";
 import SVGComponentUser from "../svgComponents/SVGComponentUser";
 
 const MainNavigation = () => {
+  const isCartUpdated = useSelector((state) => state.cart.isUpdated);
   const [sidedrawerVisible, setSidedrawerVisible] = useState(false);
+
   const body = document.querySelector("body");
+
   const handleSideDraw = (e) => {
     const hamburger = document.querySelector(".main-navigation__menu-btn");
     hamburger.classList.toggle("is-active");
@@ -48,9 +53,12 @@ const MainNavigation = () => {
           <NavLink to="/" aria-label="Ulubione">
             <SVGComponentHeart />
           </NavLink>
-          <NavLink to="/" aria-label="Koszyk">
-            <SVGComponentCart />
-          </NavLink>
+
+          <CSSTransition in={isCartUpdated} timeout={200} classNames="grow-up">
+            <NavLink to="/cart" aria-label="Koszyk" className="shopping-cart">
+              <SVGComponentCart />
+            </NavLink>
+          </CSSTransition>
         </div>
         <button
           className="main-navigation__menu-btn"
