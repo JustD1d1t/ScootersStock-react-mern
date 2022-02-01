@@ -2,14 +2,18 @@ import ReactDOM from "react-dom";
 import { NavLink } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
-import SVGComponentCart from "../svgComponents/SVGComponentCart";
-import SVGComponentHeart from "../svgComponents/SVGComponentHeart";
-import SVGComponentPhone from "../svgComponents/SVGComponentPhone";
-import SVGComponentUser from "../svgComponents/SVGComponentUser";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonIcon from "@mui/icons-material/Person";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 
 import "./SideDrawer.scss";
 
 const SideDrawer = (props) => {
+  const hideDrawer = () => {
+    props.setSidedrawerVisible((prevState) => !prevState);
+    props.handleHamburger();
+  };
   const content = (
     <CSSTransition
       in={props.show}
@@ -21,25 +25,29 @@ const SideDrawer = (props) => {
       <aside className="side-drawer">
         <div className="side-drawer__navigation">
           <div className="side-drawer__links">
-            <NavLink to="/scooters" exact>
+            <NavLink to="/scooters" exact onClick={hideDrawer}>
               Catalog
             </NavLink>
-            <NavLink to="/">Contacts</NavLink>
-            <NavLink to="/">About us</NavLink>
+            <NavLink to="/" onClick={hideDrawer}>
+              Contacts
+            </NavLink>
+            <NavLink to="/" onClick={hideDrawer}>
+              About us
+            </NavLink>
           </div>
 
           <div className="side-drawer__bottom">
             <a href="tel:+48730795875" aria-label="Kontakt telefoniczny">
-              <SVGComponentPhone />
+              <LocalPhoneIcon />
             </a>
-            <NavLink to="/" aria-label="Konto użytkownika">
-              <SVGComponentUser />
+            <NavLink to="/" aria-label="Konto użytkownika" onClick={hideDrawer}>
+              <PersonIcon />
             </NavLink>
-            <NavLink to="/" aria-label="Ulubione">
-              <SVGComponentHeart />
+            <NavLink to="/" aria-label="Ulubione" onClick={hideDrawer}>
+              <FavoriteBorderIcon />
             </NavLink>
-            <NavLink to="/cart" aria-label="Koszyk">
-              <SVGComponentCart />
+            <NavLink to="/cart" aria-label="Koszyk" onClick={hideDrawer}>
+              <ShoppingCartIcon />
             </NavLink>
           </div>
         </div>

@@ -1,0 +1,28 @@
+@import "../../../../../variables";
+.summaryStage {
+  width: 20px;
+  height: 20px;
+  border: 1px solid $secondary-color;
+  position: absolute;
+  border-radius: 50%;
+  background-color: white;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:nth-of-type(0) {
+    left: 0%;
+  }
+  &:nth-of-type(1) {
+    left: 50%;
+  }
+  &:nth-of-type(2) {
+    right: 0%;
+  }
+  &__filling {
+    width: 70%;
+    height: 70%;
+    background-color: $secondary-color;
+    border-radius: 50%;
+  }
+}

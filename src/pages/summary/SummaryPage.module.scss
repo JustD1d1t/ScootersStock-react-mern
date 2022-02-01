@@ -1,0 +1,89 @@
+@import "../../variables";
+.summary {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem;
+  &__title {
+    margin: 1rem 0;
+    font-weight: bold;
+  }
+  &__statusContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 3rem 0;
+  }
+  &__status {
+    border-bottom: 1px solid $primary-color;
+    position: relative;
+    width: 90%;
+    @media screen and(min-width: $desktop-breakpoint) {
+      width: 50%;
+    }
+  }
+  &__formContainer {
+    width: 100%;
+    order: 3;
+    @media screen and(min-width: $desktop-breakpoint) {
+      width: 60%;
+      padding: 0 2rem;
+      order: 2;
+    }
+  }
+  &__formIntroduction {
+    height: 60px;
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 350px;
+    order: 2;
+    @media screen and(min-width: $desktop-breakpoint) {
+      margin-top: 60px;
+      order: 3;
+    }
+  }
+
+  &__detailsCart {
+    border: 1px solid $primary-color;
+    border-radius: 7px;
+    padding: 1rem;
+    width: 100%;
+    @media screen and(min-width: $desktop-breakpoint) {
+      width: 350px;
+    }
+  }
+  &__deliveryMethodsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  &__successContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__success {
+    background-color: $secondary-color;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 2rem 0 4rem 0;
+    position: relative;
+  }
+  &__successSign {
+    width: 35%;
+    height: 60%;
+    border-right: 4px solid white;
+    border-bottom: 4px solid white;
+    transform: rotate(45deg) translate(-100%, -20%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ScootersCatalogList from "./components/ScootersCatalogList/ScootersCatalogList";
 import ScootersCatalogFilter from "./components/ScootersCatalogFilter/ScootersCatalogFilter";
+import { Snackbar, IconButton } from "@mui/material";
 
 import "./CatalogPage.scss";
 import { DUMMY_SCOOTERS } from "./scooters.js";
@@ -16,6 +17,32 @@ const filters = {
 
 const CatalogPage = () => {
   const [scooters, setScooters] = useState(DUMMY_SCOOTERS);
+  const [open, setOpen] = useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const openSnackBar = () => {
+    setOpen(true);
+  };
+
+  const action = (
+    <>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        X
+      </IconButton>
+    </>
+  );
 
   const filterScooters = (groupName, filterName) => {
     let currentFilters = { ...filters };
@@ -40,8 +67,15 @@ const CatalogPage = () => {
 
   return (
     <section className="catalog">
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        message="Added to cart"
+        action={action}
+      />
       <ScootersCatalogFilter filterScooters={filterScooters} />
-      <ScootersCatalogList scooters={scooters} />
+      <ScootersCatalogList scooters={scooters} openSnackBar={openSnackBar} />
     </section>
   );
 };

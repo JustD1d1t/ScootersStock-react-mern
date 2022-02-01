@@ -1,0 +1,24 @@
+@import "../../../../variables";
+.summary {
+  &__detailsPromocode {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 79px;
+    width: 100%;
+    @media screen and(min-width: $desktop-breakpoint) {
+      width: 350px;
+    }
+  }
+  &__promocodeButton {
+    color: $secondary-color;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    transition: color 0.15s ease-in-out;
+    font-size: $xxs-font-size-desktop;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}

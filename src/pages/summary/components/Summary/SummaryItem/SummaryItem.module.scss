@@ -1,0 +1,32 @@
+.summaryItem {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__details {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__description {
+    width: 50%;
+    .scooters__colors {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__title {
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+  &__image {
+    width: 40%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

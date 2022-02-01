@@ -21,6 +21,7 @@ const ScootersCatalogItem = (props) => {
         colors: props.colors,
       })
     );
+    props.openSnackBar();
   };
   return (
     <div className="scooters__item">
