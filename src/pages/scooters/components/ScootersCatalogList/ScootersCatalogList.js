@@ -11,6 +11,7 @@ const ScootersList = (props) => {
       image={scooter.image}
       colors={scooter.colors}
       rate={scooter.rate}
+      openSnackBar={props.openSnackBar}
     />
   ));
   return <div className="scooters">{scooters}</div>;

@@ -43,6 +43,7 @@ const cartSlice = createSlice({
         case "ADDITION":
           existingItem.quantity++;
           existingItem.totalPrice = existingItem.price * existingItem.quantity;
+          state.totalQuantity++;
           break;
         case "SUBSTRACTION":
           existingItem.quantity--;
@@ -53,10 +54,19 @@ const cartSlice = createSlice({
             );
             state.items.splice(existingItemIndex, 1);
           }
+          state.totalQuantity--;
           break;
         default:
           throw new Error("błąd");
       }
+      state.isUpdated = !state.isUpdated;
+    },
+    clearCart(state, action) {
+      console.log("test");
+      state.items = [];
+      state.totalQuantity = 0;
+      state.changed = false;
+      state.isUpdated = false;
     },
   },
 });

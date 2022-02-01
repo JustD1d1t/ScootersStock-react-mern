@@ -1,0 +1,52 @@
+@import "../../variables";
+.summaryForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1rem 0;
+  input {
+    margin: 0.75rem 0 1rem 0;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border-color: #afafaf;
+    width: 100%;
+  }
+  label {
+    position: relative;
+    width: 100%;
+  }
+  &__cityDetails {
+    display: flex;
+    justify-content: space-between;
+    label {
+      width: 49%;
+    }
+  }
+  &__submitButton {
+    margin-top: 1rem;
+    padding: 0.5rem 2rem;
+  }
+  &__error {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    top: -0.5rem;
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & > button {
+      margin: 1rem 0;
+      &:first-of-type {
+        order: 2;
+        @media screen and(min-width: $desktop-breakpoint) {
+          order: 0;
+        }
+      }
+    }
+    @media screen and(min-width: $desktop-breakpoint) {
+      flex-direction: row;
+    }
+  }
+}

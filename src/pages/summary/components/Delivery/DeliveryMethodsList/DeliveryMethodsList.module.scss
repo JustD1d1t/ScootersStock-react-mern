@@ -1,0 +1,12 @@
+@import "../../../../../variables";
+.deliveryMethodsList {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-around;
+  padding: 1rem 0;
+  width: 100%;
+  @media screen and(min-width: $desktop-breakpoint) {
+    flex-direction: row;
+  }
+}

@@ -10,6 +10,7 @@ import MainPage from "./pages/main/MainPage";
 import CatalogPage from "./pages/scooters/CatalogPage";
 import ScooterPage from "./pages/scooters/ScooterPage";
 import CartPage from "./pages/cart/CartPage";
+import SummaryPage from "./pages/summary/SummaryPage.jsx";
 
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import ContentWrapper from "./shared/components/ContentWrapper/ContentWrapper";
@@ -22,19 +23,24 @@ const App = () => {
         <ScrollToTop />
         <ContentWrapper>
           <MainNavigation />
-          <Route path="/" exact>
-            <MainPage />
-          </Route>
-          <Route path="/scooters" exact>
-            <CatalogPage />
-          </Route>
-          <Route path="/scooters/:id">
-            <ScooterPage />
-          </Route>
-          <Route path="/cart">
-            <CartPage />
-          </Route>
-          <Redirect to="/" />
+          <Switch>
+            <Route path="/" exact>
+              <MainPage />
+            </Route>
+            <Route path="/scooters" exact>
+              <CatalogPage />
+            </Route>
+            <Route path="/scooters/:id">
+              <ScooterPage />
+            </Route>
+            <Route path="/cart" exact>
+              <CartPage />
+            </Route>
+            <Route path="/summary">
+              <SummaryPage />
+            </Route>
+            <Redirect to="/" />
+          </Switch>
           <Footer />
         </ContentWrapper>
       </Router>

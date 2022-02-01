@@ -4,7 +4,7 @@ import "./CartItem.scss";
 import ScooterColors from "../../scooters/components/ScooterColors/ScooterColors";
 import ScooterRate from "../../scooters/components/ScooterRate/ScooterRate";
 
-const CartItem = ({ scooter }) => {
+const CartItem = ({ scooter, openSnackBar }) => {
   const dispatch = useDispatch();
   const handleAmountItem = (type) => {
     dispatch(
@@ -13,6 +13,11 @@ const CartItem = ({ scooter }) => {
         type,
       })
     );
+    if (type === "ADDITION") {
+      openSnackBar("Added to cart");
+    } else {
+      openSnackBar("Removed from cart");
+    }
   };
   const price = Math.round(scooter.totalPrice * 100) / 100;
 
