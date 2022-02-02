@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import SideDrawer from "./SideDrawer";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useSelector } from "react-redux";
 import { styled } from "@mui/material/styles";
@@ -9,12 +9,14 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import AuthContext from "../../../context/auth/authContext";
 
 import logo from "../../../static/img/LogoScooters.png";
 
 import "./MainNavigation.scss";
 
 const MainNavigation = () => {
+  const authContext = useContext(AuthContext);
   const isCartUpdated = useSelector((state) => state.cart.isUpdated);
   const cartAmount = useSelector((state) => state.cart.totalQuantity);
   const [sidedrawerVisible, setSidedrawerVisible] = useState(false);
@@ -68,9 +70,15 @@ const MainNavigation = () => {
           <a href="tel:+48730795875" aria-label="Kontakt telefoniczny">
             <LocalPhoneIcon />
           </a>
-          <NavLink to="/" aria-label="Konto użytkownika">
-            <PersonIcon />
-          </NavLink>
+          {authContext.isLoggedIn ? (
+            <NavLink to="/user" aria-label="Konto użytkownika">
+              <PersonIcon />
+            </NavLink>
+          ) : (
+            <NavLink to="/auth" aria-label="Konto użytkownika">
+              <PersonIcon />
+            </NavLink>
+          )}
           <NavLink to="/" aria-label="Ulubione">
             <FavoriteBorderIcon />
           </NavLink>

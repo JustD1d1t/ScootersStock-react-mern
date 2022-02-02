@@ -1,5 +1,3 @@
-import React from "react";
-
 import Banner from "./components/Banner/Banner";
 import ScooterList from "./components/ScooterList/ScooterList";
 

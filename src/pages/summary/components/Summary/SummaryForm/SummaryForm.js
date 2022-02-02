@@ -50,7 +50,7 @@ export const schema = yup.object().shape({
     .min(3, "At least 3 characters")
     .max(25, "Maximum 25 characters")
     .required(),
-  phone: yup
+  phoneNumber: yup
     .string()
     .matches(/^[0-9]+$/, "Must be only digits")
     .required("You have to type phone number")

@@ -58,6 +58,7 @@ const SummaryPage = () => {
     paymentMethods: false,
     success: false,
   });
+
   const scooters = useSelector((state) => state.cart.items);
 
   const handlePromoCode = () => {
