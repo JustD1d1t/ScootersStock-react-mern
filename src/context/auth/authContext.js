@@ -30,7 +30,7 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.setItem("isLoggedIn", "1");
     localStorage.setItem("user", JSON.stringify(user));
     setIsLoggedIn(true);
-    setUserData(user);
+    setUserData(JSON.stringify(user));
   };
 
   const context = useMemo(
