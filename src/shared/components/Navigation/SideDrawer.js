@@ -40,7 +40,11 @@ const SideDrawer = (props) => {
             <a href="tel:+48730795875" aria-label="Kontakt telefoniczny">
               <LocalPhoneIcon />
             </a>
-            <NavLink to="/" aria-label="Konto użytkownika" onClick={hideDrawer}>
+            <NavLink
+              to="/user"
+              aria-label="Konto użytkownika"
+              onClick={hideDrawer}
+            >
               <PersonIcon />
             </NavLink>
             <NavLink to="/" aria-label="Ulubione" onClick={hideDrawer}>

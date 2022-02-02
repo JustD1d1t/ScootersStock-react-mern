@@ -1,0 +1,17 @@
+.change-form-enter {
+  transform: scale(0.5);
+}
+
+.change-form-enter-active {
+  transform: scale(1);
+  opacity: 1;
+  transition: all 400ms;
+}
+
+.change-form-exit {
+  display: none;
+}
+
+.change-form-exit-active {
+  display: none;
+}
