@@ -32,6 +32,7 @@ const MainNavigation = () => {
 
   const handleHamburger = () => {
     const hamburger = document.querySelector(".main-navigation__menu-btn");
+    // nie reaktywnie a imperatywnie
     hamburger.classList.toggle("is-active");
   };
 

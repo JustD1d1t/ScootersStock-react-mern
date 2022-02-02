@@ -18,6 +18,7 @@ import Footer from "./shared/components/Footer/Footer";
 
 const App = () => {
   return (
+    // router jest już rootem
     <>
       <Router>
         <ScrollToTop />
