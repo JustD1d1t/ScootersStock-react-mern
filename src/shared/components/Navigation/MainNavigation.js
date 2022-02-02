@@ -20,6 +20,7 @@ const MainNavigation = () => {
 
   const handleSideDraw = (e) => {
     const hamburger = document.querySelector(".main-navigation__menu-btn");
+    // nie reaktywnie a imperatywnie
     hamburger.classList.toggle("is-active");
     setSidedrawerVisible(!sidedrawerVisible);
     body.classList.toggle("hide-overflow");
