@@ -1,8 +1,8 @@
 import SVGComponentStar from "../../../../shared/components/svgComponents/SVGComponentStar";
-
+import styles from "./ScooterRate.module.scss";
 const ScooterRate = (props) => {
   return (
-    <div className="scooters__rate">
+    <div className={styles.scooters__rate}>
       <SVGComponentStar />
       <SVGComponentStar />
       <SVGComponentStar />

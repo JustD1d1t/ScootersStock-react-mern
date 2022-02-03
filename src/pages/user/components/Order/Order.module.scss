@@ -1,0 +1,43 @@
+@import "../../../../variables";
+.order {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media screen and (min-width: $medium-breakpoint) {
+      flex-direction: row;
+    }
+  }
+  &__number {
+    font-size: $xxs-font-size-desktop;
+  }
+  &__image {
+    @media screen and (min-width: $medium-breakpoint) {
+      width: 200px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__itemDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (min-width: $medium-breakpoint) {
+      align-items: flex-end;
+    }
+  }
+  &__title {
+    font-size: $xs-font-size-desktop;
+    margin: 1rem 0;
+  }
+  &__amount {
+    font-size: $xxs-font-size-desktop;
+    margin: 0.25rem 0;
+  }
+  &__totalPrice {
+    font-size: $xxs-font-size-desktop;
+  }
+}

@@ -1,6 +1,8 @@
+import styles from "./ScooterColors.module.scss";
+
 const ScooterColors = (props) => {
   return (
-    <div className="scooters__colors">
+    <div className={styles.scooters__colors}>
       {props.colors.map((color, id) => (
         <div
           key={id}

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import ReactDOM from "react-dom";
 import { NavLink } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import { useContext } from "react";
 import AuthContext from "../../../context/auth/authContext";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -50,7 +51,8 @@ const SideDrawer = (props) => {
             ) : (
               <NavLink
                 to="/auth"
-                aria-label="Konto użytkownika"
+                aria-label="Logowanie / Rejestracja"
+
                 onClick={props.handleSideDraw}
               >
                 <PersonIcon />

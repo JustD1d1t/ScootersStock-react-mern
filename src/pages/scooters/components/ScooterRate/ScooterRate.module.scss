@@ -1,0 +1,9 @@
+@import "../../../../variables";
+.scooters {
+  &__rate {
+    text-align: center;
+    @media screen and(min-width: $medium-breakpoint) {
+      text-align: left;
+    }
+  }
+}

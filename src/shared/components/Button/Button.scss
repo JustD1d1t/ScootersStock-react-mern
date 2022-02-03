@@ -11,6 +11,10 @@
   font-size: $s-font-size-mobile;
   display: block;
   transition: box-shadow 0.3s ease-in-out;
+  margin: 1rem 0;
+  &--center {
+    margin: 1rem auto;
+  }
   &:hover {
     box-shadow: 0 6px 10px 1px rgba(0, 0, 0, 0.2);
     color: $primary-color;
