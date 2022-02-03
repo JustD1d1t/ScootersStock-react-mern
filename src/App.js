@@ -37,7 +37,7 @@ const App = () => {
   const authContext = useContext(AuthContext);
   return (
     <ThemeProvider theme={THEME}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <ScrollToTop />
         <ContentWrapper>
           <MainNavigation />

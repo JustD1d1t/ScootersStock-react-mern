@@ -48,9 +48,8 @@ const ScootersCatalogFilter = (props) => {
     event.target.nextElementSibling.classList.toggle("open");
   };
 
-  const filterScooters = (event) => {
-    const filter = event.target;
-    props.filterScooters(filter.dataset.group, filter.name);
+  const filterScooters = (name, group) => {
+    props.filterScooters(name, group);
   };
 
   const filters = DUMMY_FILTERS.map((filter, id) => {
@@ -70,9 +69,9 @@ const ScootersCatalogFilter = (props) => {
               <input
                 type="checkbox"
                 id={category}
-                name={category}
-                data-group={filter.header}
-                onChange={filterScooters}
+                onChange={() => {
+                  filterScooters(filter.header, category);
+                }}
               />
               <span className="checkmark"></span>
             </label>

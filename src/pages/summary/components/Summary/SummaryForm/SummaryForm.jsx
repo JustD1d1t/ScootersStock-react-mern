@@ -5,6 +5,8 @@ import { schema } from "./SummaryForm";
 import Button from "../../../../../shared/components/Button/Button";
 import styles from "../../../SummaryForm.module.scss";
 import AuthContext from "../../../../../context/auth/authContext";
+import { TextField } from "@mui/material";
+import { InvalidField } from "../../../../../shared/components/InvalidField/InvalidField";
 
 const SummaryForm = ({ goToTheDelivery, goToTheTop }) => {
   const authContext = useContext(AuthContext);
@@ -32,97 +34,142 @@ const SummaryForm = ({ goToTheDelivery, goToTheTop }) => {
   }, [authContext, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(submitForm)} className={styles.summaryForm}>
-      <label>
-        <span className={styles.summaryForm__error}>
-          {errors.name?.message}
-        </span>
-        <input type="text" placeholder="Name" {...register("name")} />
-      </label>
-      <label>
-        <span className={styles.summaryForm__error}>
-          {errors.lastName?.message}
-        </span>
-        <input type="text" placeholder="Last name" {...register("lastName")} />
-      </label>
-      <label>
-        <span className={styles.summaryForm__error}>
-          {errors.street?.message}
-        </span>
-        <input type="text" placeholder="Street" {...register("street")} />
-      </label>
-      <label>
-        <span className={styles.summaryForm__error}>
-          {errors.houseNumber?.message}
-        </span>
-        <input
-          type="text"
-          placeholder="House number"
-          {...register("houseNumber")}
-        />
-      </label>
-      <label>
-        <span className={styles.summaryForm__error}>
-          {errors.flatNumber?.message}
-        </span>
-        <input
-          type="text"
-          placeholder="Flat number"
-          {...register("flatNumber")}
-        />
-      </label>
-
+    <>
+      <TextField
+        required
+        id="name"
+        name="name"
+        label="Name"
+        margin="dense"
+        variant="standard"
+        {...register("name")}
+        error={errors.name ? true : false}
+        fullWidth
+      />
+      <InvalidField>{errors.name?.message}</InvalidField>
+      <TextField
+        required
+        id="lastName"
+        name="lastName"
+        label="Last name"
+        margin="dense"
+        variant="standard"
+        {...register("lastName")}
+        error={errors.lastName ? true : false}
+        fullWidth
+      />
+      <InvalidField>{errors.lastName?.message}</InvalidField>
+      <TextField
+        required
+        id="street"
+        name="street"
+        label="Street"
+        margin="dense"
+        variant="standard"
+        {...register("street")}
+        error={errors.street ? true : false}
+        fullWidth
+      />
+      <InvalidField>{errors.street?.message}</InvalidField>
+      <TextField
+        required
+        id="houseNumber"
+        name="houseNumber"
+        label="House Number"
+        margin="dense"
+        variant="standard"
+        {...register("houseNumber")}
+        error={errors.houseNumber ? true : false}
+        fullWidth
+      />
+      <InvalidField>{errors.houseNumber?.message}</InvalidField>
+      <TextField
+        required
+        id="flatNumber"
+        name="flatNumber"
+        label="Flat Number"
+        margin="dense"
+        variant="standard"
+        {...register("flatNumber")}
+        error={errors.flatNumber ? true : false}
+        fullWidth
+      />
+      <InvalidField>{errors.flatNumber?.message}</InvalidField>
       <div className={styles.summaryForm__cityDetails}>
-        <label>
-          <span className={styles.summaryForm__error}>
-            {errors.zipCode?.message}
-          </span>
-          <input
-            type="text"
-            placeholder="Zip code"
+        <div>
+          <TextField
+            required
+            id="zipCode"
+            name="zipCode"
+            label="Zip Code"
+            margin="dense"
+            variant="standard"
             {...register("zipCode")}
-            className={styles.half}
+            error={errors.zipCode ? true : false}
+            fullWidth
           />
-        </label>
-        <label>
-          <span className={styles.summaryForm__error}>
-            {errors.city?.message}
-          </span>
-          <input
-            type="text"
-            placeholder="City"
+          <InvalidField>{errors.zipCode?.message}</InvalidField>
+        </div>
+        <div>
+          <TextField
+            required
+            id="city"
+            name="city"
+            label="City"
+            margin="dense"
+            variant="standard"
             {...register("city")}
-            className={styles.half}
+            error={errors.city ? true : false}
+            fullWidth
           />
-        </label>
+          <InvalidField>{errors.city?.message}</InvalidField>
+        </div>
       </div>
-      <label>
-        <span className={styles.summaryForm__error}>
-          {errors.country?.message}
-        </span>
-        <input type="text" placeholder="Country" {...register("country")} />
-      </label>
-
-      <label>
-        <span className={styles.summaryForm__error}>
-          {errors.email?.message}
-        </span>
-        <input type="text" placeholder="E-mail" {...register("email")} />
-      </label>
-      <label>
-        <span className={styles.summaryForm__error}>
-          {errors.phoneNumber?.message}
-        </span>
-        <input
-          type="text"
-          placeholder="Phone number"
-          {...register("phoneNumber")}
-        />
-      </label>
-      <Button type="submit" classes={styles.summarysummaryForm__submitButton}>
+      <TextField
+        required
+        id="country"
+        name="country"
+        label="Country"
+        margin="dense"
+        variant="standard"
+        {...register("country")}
+        error={errors.country ? true : false}
+        fullWidth
+      />
+      <InvalidField>{errors.country?.message}</InvalidField>{" "}
+      <TextField
+        required
+        id="email"
+        name="email"
+        label="E-mail"
+        margin="dense"
+        variant="standard"
+        {...register("email")}
+        error={errors.email ? true : false}
+        fullWidth
+      />
+      <InvalidField>{errors.email?.message}</InvalidField>{" "}
+      <TextField
+        required
+        id="phoneNumber"
+        name="phoneNumber"
+        label="Phone Number"
+        margin="dense"
+        variant="standard"
+        {...register("phoneNumber")}
+        error={errors.phoneNumber ? true : false}
+        fullWidth
+      />
+      <InvalidField>{errors.phoneNumber?.message}</InvalidField>
+      <Button
+        type="submit"
+        size="small"
+        classes={styles.summaryForm__submitButton}
+        onClick={handleSubmit(submitForm)}
+      >
         Go to the delivery
       </Button>
-    </form>
+    </>
   );
 };
 

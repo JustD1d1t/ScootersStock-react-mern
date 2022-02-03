@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import ReactDOM from "react-dom";
 import { NavLink } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
@@ -51,6 +52,7 @@ const SideDrawer = (props) => {
               <NavLink
                 to="/auth"
                 aria-label="Logowanie / Rejestracja"
+
                 onClick={props.handleSideDraw}
               >
                 <PersonIcon />
