@@ -16,7 +16,7 @@ export const UserNavigation = ({ handlePanel }) => {
           disableRipple
           onClick={() => handlePanel("account")}
         >
-          Konto
+          Account
         </ButtonNavigation>
       </Grid>
       <Grid item md={12}>
@@ -25,7 +25,7 @@ export const UserNavigation = ({ handlePanel }) => {
           disableRipple
           onClick={() => handlePanel("password")}
         >
-          Edytuj hasło
+          Change password
         </ButtonNavigation>
       </Grid>
       <Grid item md={12}>
@@ -34,7 +34,7 @@ export const UserNavigation = ({ handlePanel }) => {
           disableRipple
           onClick={() => handlePanel("favourite")}
         >
-          Ulubione
+          Favourites
         </ButtonNavigation>
       </Grid>
       <Grid item md={12}>
@@ -43,12 +43,12 @@ export const UserNavigation = ({ handlePanel }) => {
           disableRipple
           onClick={() => handlePanel("orders")}
         >
-          Zamówienia
+          Orders
         </ButtonNavigation>
       </Grid>
       <Grid item md={12}>
         <ButtonNavigation fullWidth disableRipple onClick={handleLogout}>
-          Wyloguj
+          Logout
         </ButtonNavigation>
       </Grid>
     </Grid>
