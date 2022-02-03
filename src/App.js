@@ -45,7 +45,7 @@ const App = () => {
               <SummaryPage />
             </Route>
             {!authContext.isLoggedIn && (
-              <Route path="/auth">
+              <Route path="/auth" exact>
                 <AuthPage />
               </Route>
             )}
