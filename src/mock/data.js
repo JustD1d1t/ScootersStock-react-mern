@@ -17,5 +17,21 @@ export const MOCK_LOGINS = [
     city: "city",
     country: "country",
     phoneNumber: 565746564,
+    favourite: [1, 3, 5, 7],
+    orders: [
+      {
+        id: 1,
+        scooters: [
+          {
+            scooterId: 1,
+            amount: 2,
+          },
+          {
+            scooterId: 3,
+            amount: 1,
+          },
+        ],
+      },
+    ],
   },
 ];

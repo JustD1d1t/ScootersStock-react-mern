@@ -43,19 +43,7 @@
       font-size: $s-font-size-desktop;
     }
   }
-  &__rate {
-    text-align: center;
-    @media screen and(min-width: $medium-breakpoint) {
-      text-align: left;
-    }
-  }
-  &__colors {
-    display: flex;
-    justify-content: center;
-    @media screen and(min-width: $medium-breakpoint) {
-      justify-content: flex-start;
-    }
-  }
+
   &__color {
     @include scooter-color;
   }

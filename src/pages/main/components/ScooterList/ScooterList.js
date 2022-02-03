@@ -4,38 +4,42 @@ import ScooterItem from "../ScooterItem/ScooterItem";
 
 import "./ScootersList.scss";
 
-import GP125ACGP from "../../../../static/img/scooters/GP-125-ACGP.png";
-import GP300LC from "../../../../static/img/scooters/GP-300-LC.png";
-import GT50AC from "../../../../static/img/scooters/GT-50-AC.png";
+import orange2 from "../../../../static/img/scooters/catalog/orange-2.png";
+import green2 from "../../../../static/img/scooters/catalog/green-2.png";
+import orange from "../../../../static/img/scooters/catalog/orange.png";
 
 const DUMMY_SCOOTERS_MAIN = [
   {
-    name: "GP 125 ACGP",
-    img: GP125ACGP,
+    id: 6,
+    name: "GP 125 LC",
+    img: orange2,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod amet mattis tortor sed. Integer ipsum, risus, at varius.",
   },
   {
-    name: "GP 300 LC",
-    img: GP300LC,
+    id: 4,
+    name: "TG 300S LC",
+    img: green2,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod amet mattis tortor sed. Integer ipsum, risus, at varius.",
   },
   {
+    id: 1,
     name: "GT 50 AC",
-    img: GT50AC,
+    img: orange,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod amet mattis tortor sed. Integer ipsum, risus, at varius.",
   },
 ];
 
 const ScooterList = (props) => {
-  const scooters = DUMMY_SCOOTERS_MAIN.map((scooter, id) => (
+  const scooters = DUMMY_SCOOTERS_MAIN.map((scooter) => (
     <ScooterItem
-      key={id}
+      key={scooter.id}
       name={scooter.name}
       img={scooter.img}
       description={scooter.description}
+      id={scooter.id}
     />
   ));
   return <div className="scooters__container">{scooters}</div>;

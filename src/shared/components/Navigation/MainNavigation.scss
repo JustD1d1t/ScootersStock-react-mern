@@ -16,7 +16,7 @@
       display: flex;
     }
     a {
-      padding: 0 2rem;
+      margin-right: 2rem;
       font-size: $xs-font-size-desktop;
     }
   }
@@ -29,10 +29,13 @@
       display: flex;
     }
     a {
-      padding: 0 1rem;
+      margin: 0 1rem;
       font-size: $xs-font-size-desktop;
       display: flex;
       align-items: center;
+      &:last-of-type {
+        margin-right: 0;
+      }
     }
   }
   &__logo {

@@ -23,10 +23,10 @@ const SummaryForm = ({ goToTheDelivery, goToTheTop }) => {
   };
 
   useEffect(() => {
-    const data = JSON.parse(authContext.userData);
-    for (const key in data) {
+    const user = JSON.parse(authContext.userData);
+    for (const key in user) {
       if (key !== "password") {
-        setValue(key, data[key]);
+        setValue(key, user[key]);
       }
     }
   }, [authContext, setValue]);

@@ -14,7 +14,7 @@ const ScooterItem = (props) => {
           <p className="scooter__name">{props.name}</p>
           <p className="scooter__description">{props.description}</p>
         </div>
-        <Button inverse size="small" type="button">
+        <Button inverse size="small" type="button" to={`/scooters/${props.id}`}>
           Learn more
         </Button>
       </div>

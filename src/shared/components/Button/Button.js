@@ -9,9 +9,11 @@ const Button = (props) => {
       <Link
         to={props.to}
         exact={props.exact}
-        className={`button ${props.size ? `button--${props.size}` : ""} ${
-          props.inverse ? "button--inverse" : ""
-        } ${props.danger ? "button--danger" : ""}`}
+        className={`button 
+        ${props.size ? `button--${props.size}` : ""} 
+        ${props.inverse ? "button--inverse" : ""} 
+        ${props.danger ? "button--danger" : ""} 
+        ${props.center ? "button--center" : ""}`}
       >
         {props.children}
       </Link>
@@ -22,7 +24,9 @@ const Button = (props) => {
       <button
         className={`button ${props.size ? `button--${props.size}` : ""} ${
           props.inverse ? "button--inverse" : ""
-        } ${props.classes ? props.classes : ""}`}
+        } ${props.classes ? props.classes : ""} ${
+          props.center ? "button--center" : ""
+        }`}
         type={props.type}
         onClick={props.onClick}
         disabled={props.disabled}
