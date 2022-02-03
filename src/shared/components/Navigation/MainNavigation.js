@@ -49,7 +49,7 @@ const MainNavigation = () => {
       <SideDrawer
         show={sidedrawerVisible}
         setSidedrawerVisible={setSidedrawerVisible}
-        handleHamburger={handleHamburger}
+        handleSideDraw={handleSideDraw}
       />
       <div className="main-navigation">
         <div className="main-navigation__links">

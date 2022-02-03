@@ -24,7 +24,7 @@ const App = () => {
   return (
     // router jest już rootem
     <>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <ScrollToTop />
         <ContentWrapper>
           <MainNavigation />

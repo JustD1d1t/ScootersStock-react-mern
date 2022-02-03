@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import ReactDOM from "react-dom";
 import { NavLink } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import AuthContext from "../../../context/auth/authContext";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
@@ -10,10 +12,7 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import "./SideDrawer.scss";
 
 const SideDrawer = (props) => {
-  const hideDrawer = () => {
-    props.setSidedrawerVisible((prevState) => !prevState);
-    props.handleHamburger();
-  };
+  const authContext = useContext(AuthContext);
   const content = (
     <CSSTransition
       in={props.show}
@@ -25,13 +24,13 @@ const SideDrawer = (props) => {
       <aside className="side-drawer">
         <div className="side-drawer__navigation">
           <div className="side-drawer__links">
-            <NavLink to="/scooters" exact onClick={hideDrawer}>
+            <NavLink to="/scooters" exact onClick={props.handleSideDraw}>
               Catalog
             </NavLink>
-            <NavLink to="/" onClick={hideDrawer}>
+            <NavLink to="/" onClick={props.handleSideDraw}>
               Contacts
             </NavLink>
-            <NavLink to="/" onClick={hideDrawer}>
+            <NavLink to="/" onClick={props.handleSideDraw}>
               About us
             </NavLink>
           </div>
@@ -40,17 +39,35 @@ const SideDrawer = (props) => {
             <a href="tel:+48730795875" aria-label="Kontakt telefoniczny">
               <LocalPhoneIcon />
             </a>
+            {authContext.isLoggedIn ? (
+              <NavLink
+                to="/user"
+                aria-label="Konto użytkownika"
+                onClick={props.handleSideDraw}
+              >
+                <PersonIcon />
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/auth"
+                aria-label="Konto użytkownika"
+                onClick={props.handleSideDraw}
+              >
+                <PersonIcon />
+              </NavLink>
+            )}
             <NavLink
-              to="/user"
-              aria-label="Konto użytkownika"
-              onClick={hideDrawer}
+              to="/"
+              aria-label="Ulubione"
+              onClick={props.handleSideDraw}
             >
-              <PersonIcon />
-            </NavLink>
-            <NavLink to="/" aria-label="Ulubione" onClick={hideDrawer}>
               <FavoriteBorderIcon />
             </NavLink>
-            <NavLink to="/cart" aria-label="Koszyk" onClick={hideDrawer}>
+            <NavLink
+              to="/cart"
+              aria-label="Koszyk"
+              onClick={props.handleSideDraw}
+            >
               <ShoppingCartIcon />
             </NavLink>
           </div>
