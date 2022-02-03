@@ -60,7 +60,9 @@ export const LoginForm = ({ changeForm }) => {
   const closeModal = () => dispatchModal({ type: "CLOSE_MODAL" });
 
   const getUserData = (data) => {
-    const user = MOCK_LOGINS.find((login) => login.email === data.email);
+    const user = MOCK_LOGINS.find(
+      (login) => login.email === data.email.toLowerCase()
+    );
     return user;
   };
 

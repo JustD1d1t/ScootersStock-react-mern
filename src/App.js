@@ -1,9 +1,6 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-} from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+
 import { useContext } from "react";
 
 import { createTheme } from "@mui/material/styles";
@@ -37,7 +34,7 @@ const App = () => {
   const authContext = useContext(AuthContext);
   return (
     <ThemeProvider theme={THEME}>
-      <Router basename={process.env.PUBLIC_URL}>
+      <HashRouter basename={process.env.PUBLIC_URL}>
         <ScrollToTop />
         <ContentWrapper>
           <MainNavigation />
@@ -71,7 +68,7 @@ const App = () => {
           </Switch>
           <Footer />
         </ContentWrapper>
-      </Router>
+      </HashRouter>
     </ThemeProvider>
   );
 };
