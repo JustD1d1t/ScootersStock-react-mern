@@ -4,6 +4,8 @@ import formStyles from "../../SummaryForm.module.scss";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./PromocodeForm";
+import { TextField } from "@mui/material";
+import { InvalidField } from "../../../../shared/components/InvalidField/InvalidField";
 export const SummaryPromocode = ({
   promocodeButton,
   promocodeInput,
@@ -37,17 +39,18 @@ export const SummaryPromocode = ({
           onSubmit={handleSubmit(submitForm)}
           className={formStyles.summaryForm}
         >
-          <label>
-            <span className={styles.summaryForm__error}>
-              {errors.promocode?.message}
-            </span>
-            <input
-              type="text"
-              placeholder="Promocode"
-              name="promocode"
-              {...register("promocode")}
-            />
-          </label>
+          <TextField
+            required
+            id="promocode"
+            name="promocode"
+            label="Promocode"
+            margin="dense"
+            variant="standard"
+            {...register("promocode")}
+            error={errors.promocode ? true : false}
+            fullWidth
+          />
+          <InvalidField>{errors.promocode?.message}</InvalidField>
         </form>
       )}
       {promocodeSuccess && (
