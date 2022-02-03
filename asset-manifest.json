@@ -1,17 +1,14 @@
 {
   "files": {
-    "main.css": "/ScootersStock-react-mern/static/css/main.24315213.css",
-    "main.js": "/ScootersStock-react-mern/static/js/main.a99e22ef.js",
+    "main.css": "/ScootersStock-react-mern/static/css/main.337ea76d.css",
+    "main.js": "/ScootersStock-react-mern/static/js/main.50baaffa.js",
     "static/media/banner_scooters.png": "/ScootersStock-react-mern/static/media/banner_scooters.6041757181334dd49e8f.png",
     "static/media/green.png": "/ScootersStock-react-mern/static/media/green.168d67e34a584f5f35e0.png",
-    "static/media/GT-50-AC.png": "/ScootersStock-react-mern/static/media/GT-50-AC.f21fbc4ef720dad43dc3.png",
-    "static/media/GP-300-LC.png": "/ScootersStock-react-mern/static/media/GP-300-LC.d89e8e942e211ec90955.png",
     "static/media/black.png": "/ScootersStock-react-mern/static/media/black.4d7794c5f819ac02afd5.png",
     "static/media/orange-2.png": "/ScootersStock-react-mern/static/media/orange-2.4f7fd019fbb2f96b0ce4.png",
     "static/media/orange.png": "/ScootersStock-react-mern/static/media/orange.4f7fd019fbb2f96b0ce4.png",
     "static/media/White.png": "/ScootersStock-react-mern/static/media/White.f454f2345c323a1f5851.png",
     "static/media/blue-white-custom.png": "/ScootersStock-react-mern/static/media/blue-white-custom.9c54ef50f0768aa0dcc7.png",
-    "static/media/GP-125-ACGP.png": "/ScootersStock-react-mern/static/media/GP-125-ACGP.71ed1d3ca6dc37567ebd.png",
     "static/media/banner_scooters--mobile.png": "/ScootersStock-react-mern/static/media/banner_scooters--mobile.e444368de227670037c1.png",
     "static/media/green-2.png": "/ScootersStock-react-mern/static/media/green-2.728da99c3d4034585dff.png",
     "static/media/Royal-Alloy-GP-200-LC-Red.png": "/ScootersStock-react-mern/static/media/Royal-Alloy-GP-200-LC-Red.3436cf7f83842e04a444.png",
@@ -20,11 +17,11 @@
     "static/media/Ultra-Blue-Ivory-125cc.png": "/ScootersStock-react-mern/static/media/Ultra-Blue-Ivory-125cc.f4075140631f5c2f7508.png",
     "static/media/red-ivory-125cc.png": "/ScootersStock-react-mern/static/media/red-ivory-125cc.c9cb4cb85100cefc591c.png",
     "index.html": "/ScootersStock-react-mern/index.html",
-    "main.24315213.css.map": "/ScootersStock-react-mern/static/css/main.24315213.css.map",
-    "main.a99e22ef.js.map": "/ScootersStock-react-mern/static/js/main.a99e22ef.js.map"
+    "main.337ea76d.css.map": "/ScootersStock-react-mern/static/css/main.337ea76d.css.map",
+    "main.50baaffa.js.map": "/ScootersStock-react-mern/static/js/main.50baaffa.js.map"
   },
   "entrypoints": [
-    "static/css/main.24315213.css",
-    "static/js/main.a99e22ef.js"
+    "static/css/main.337ea76d.css",
+    "static/js/main.50baaffa.js"
   ]
 }
