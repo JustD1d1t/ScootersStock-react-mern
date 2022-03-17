@@ -4,6 +4,7 @@ import ScootersCatalogFilter from "./components/ScootersCatalogFilter/ScootersCa
 import { Snackbar, IconButton } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/httpHook";
+import { config } from "../../utils/config";
 
 import "./CatalogPage.scss";
 
@@ -50,7 +51,7 @@ const CatalogPage = () => {
     history.push({
       search: queryString,
     });
-    let url = "http://localhost:4000/scooters";
+    let url = `${config.scootersUrl}`;
     if (queryString) {
       url = url.concat("?", queryString);
     }

@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../../../../store/cart";
 import { useHttpClient } from "../../../../../shared/hooks/httpHook.js";
 import AuthContext from "../../../../../context/auth/authContext.js";
+import { config } from "../../../../../utils/config.js";
 
 export const PaymentForm = ({ dispatchSummary, goToTheTop }) => {
   const order = useSelector((state) => state.cart);
@@ -32,7 +33,7 @@ export const PaymentForm = ({ dispatchSummary, goToTheTop }) => {
       };
     });
     const response = await sendRequest(
-      "http://localhost:4000/order",
+      `${config.orderUrl}`,
       "POST",
       JSON.stringify({
         items: scootersInOrder,

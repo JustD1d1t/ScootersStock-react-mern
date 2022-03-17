@@ -1,4 +1,4 @@
-import { useContext, useReducer } from "react";
+import { useContext, useState } from "react";
 import AuthContext from "../../../../context/auth/authContext";
 import { TextField, Paper, Box, Grid } from "@mui/material";
 import Button from "../../../../shared/components/Button/Button";
@@ -9,30 +9,14 @@ import { InvalidField } from "../../../../shared/components/InvalidField/Invalid
 import styles from "./Password.module.scss";
 import { useHttpClient } from "../../../../shared/hooks/httpHook";
 import { BasicModal } from "../../../../shared/components/Modal/Modal";
-
-const modalReducer = (state, action) => {
-  const newState = { ...state };
-  switch (action.type) {
-    case "OPEN_MODAL":
-      newState.modalActive = true;
-      newState.modalMessage = action.message;
-      return newState;
-    case "CLOSE_MODAL":
-      newState.modalActive = false;
-      newState.modalMessage = null;
-      return newState;
-    default:
-      throw new Error("You shouldn't get here");
-  }
-};
+import { config } from "../../../../utils/config";
 
 export const Password = () => {
   const authContext = useContext(AuthContext);
   const { sendRequest } = useHttpClient();
-  const [modalState, dispatchModal] = useReducer(modalReducer, {
-    modalActive: false,
-    modalMessage: null,
-  });
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+
   const schema = Yup.object().shape({
     password: Yup.string()
       .required("Password is required")
@@ -54,7 +38,7 @@ export const Password = () => {
 
   const onSubmit = async (data) => {
     const response = await sendRequest(
-      "http://localhost:4000/user/reset",
+      `${config.userUrl}/reset`,
       "POST",
       JSON.stringify({
         password: data.password,
@@ -65,16 +49,14 @@ export const Password = () => {
       }
     );
     if (response.message) {
-      dispatchModal({
-        type: "OPEN_MODAL",
-        message: response.message,
-      });
+      setModalVisible(true);
+      setModalMessage(response.message);
       setValue("password", "");
       setValue("confirmPassword", "");
     }
   };
 
-  const closeModal = () => dispatchModal({ type: "CLOSE_MODAL" });
+  const closeModal = () => setModalVisible(false);
 
   return (
     <Grid
@@ -84,9 +66,9 @@ export const Password = () => {
       sx={{ margin: "auto 0" }}
     >
       <BasicModal
-        text={modalState.modalMessage}
+        text={modalMessage}
         closeModal={closeModal}
-        modalActive={modalState.modalActive}
+        modalActive={modalVisible}
       />
       <Grid item xs={12} sm={8} md={6}>
         <Paper>

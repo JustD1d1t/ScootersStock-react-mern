@@ -6,52 +6,23 @@ import {
   Grid,
 } from "@mui/material";
 import AuthContext from "../../../context/auth/authContext";
-import { useContext, useReducer } from "react";
+import { useContext, useState } from "react";
 import Button from "../../../shared/components/Button/Button";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
 import { InvalidField } from "../../../shared/components/InvalidField/InvalidField";
 import { BasicModal } from "../../../shared/components/Modal/Modal";
 import { useHttpClient } from "../../../shared/hooks/httpHook";
 import { useHistory } from "react-router-dom";
-
-const modalReducer = (state, action) => {
-  const newState = { ...state };
-  switch (action.type) {
-    case "OPEN_MODAL":
-      newState.modalActive = true;
-      newState.modalMessage = action.message;
-      return newState;
-    case "CLOSE_MODAL":
-      newState.modalActive = false;
-      newState.modalMessage = null;
-      return newState;
-    default:
-      throw new Error("You shouldn't get here");
-  }
-};
+import { config } from "../../../utils/config";
+import { schema, fields } from "./LoginForm.js";
 
 export const LoginForm = ({ changeForm }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
   const { sendRequest } = useHttpClient();
   const authContext = useContext(AuthContext);
   const history = useHistory();
-  const [modalState, dispatchModal] = useReducer(modalReducer, {
-    modalActive: false,
-    modalMessage: null,
-  });
-  const schema = Yup.object().shape({
-    email: Yup.string()
-      .required("Email is required")
-      .email("Email is required")
-      .min(6, "Email must be at least 6 characters")
-      .max(20, "Email must not exceed 20 characters"),
-    password: Yup.string()
-      .required("Password is required")
-      .min(6, "Password must be at least 6 characters")
-      .max(40, "Password must not exceed 40 characters"),
-    acceptTerms: Yup.bool().oneOf([true], "Accept Terms is required"),
-  });
 
   const {
     register,
@@ -60,24 +31,21 @@ export const LoginForm = ({ changeForm }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const closeModal = () => dispatchModal({ type: "CLOSE_MODAL" });
+  const closeModal = () => setModalVisible(false);
 
   const onSubmit = async (data) => {
-    const url = "http://localhost:4000/user/login";
+    const url = `${config.userUrl}/login`;
     const response = await sendRequest(url, "POST", JSON.stringify(data), {
       "Content-Type": "application/json",
     });
     if (response.errors?.user) {
-      dispatchModal({
-        type: "OPEN_MODAL",
-        message: response.errors.user,
-      });
+      setModalVisible(true);
+      setModalMessage(response.errors.user);
+
       return;
     } else if (response.errors?.password) {
-      dispatchModal({
-        type: "OPEN_MODAL",
-        message: response.errors.password,
-      });
+      setModalVisible(true);
+      setModalMessage(response.errors.password);
       return;
     }
     authContext.onLogin(response.token);
@@ -87,37 +55,27 @@ export const LoginForm = ({ changeForm }) => {
   return (
     <div>
       <BasicModal
-        text={modalState.modalMessage}
+        text={modalMessage}
         closeModal={closeModal}
-        modalActive={modalState.modalActive}
+        modalActive={modalVisible}
       />
-      <TextField
-        required
-        id="email"
-        name="email"
-        label="Email"
-        margin="dense"
-        variant="standard"
-        {...register("email")}
-        error={errors.email ? true : false}
-        fullWidth
-      />
-      <InvalidField>{errors.email?.message}</InvalidField>
-      <TextField
-        required
-        id="password"
-        name="password"
-        label="Password"
-        margin="dense"
-        variant="standard"
-        type="password"
-        {...register("password")}
-        error={errors.password ? true : false}
-        fullWidth
-      />
-      <Typography variant="inherit" color="textSecondary">
-        {errors.password?.message}
-      </Typography>
+      {fields.map((field) => (
+        <>
+          <TextField
+            required
+            id={field.name}
+            name={field.name}
+            label={field.label}
+            variant="standard"
+            type={field.name === "password" ? "password" : "email"}
+            {...register(field.name)}
+            error={errors[field.name] ? true : false}
+            fullWidth
+            margin="dense"
+          />
+          <InvalidField>{errors[field.name]?.message}</InvalidField>
+        </>
+      ))}
       <FormControlLabel
         control={
           <Controller

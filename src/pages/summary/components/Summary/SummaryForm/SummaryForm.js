@@ -57,3 +57,46 @@ export const schema = yup.object().shape({
     .min(8, "At least 8 characters")
     .max(10, "Maximum 10 characters"),
 });
+
+export const fields = [
+  {
+    name: "name",
+    label: "Name",
+  },
+  {
+    name: "lastName",
+    label: "Last name",
+  },
+  {
+    name: "street",
+    label: "Street",
+  },
+  {
+    name: "houseNumber",
+    label: "House Number",
+  },
+  {
+    name: "flatNumber",
+    label: "Flat Number",
+  },
+  {
+    name: "zipCode",
+    label: "Zip Code",
+  },
+  {
+    name: "city",
+    label: "City",
+  },
+  {
+    name: "country",
+    label: "Country",
+  },
+  {
+    name: "email",
+    label: "Email",
+  },
+  {
+    name: "phoneNumber",
+    label: "Phone Number",
+  },
+];

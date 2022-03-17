@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import AuthContext from "../../../../context/auth/authContext";
 import { TextField, Paper, Box, Grid } from "@mui/material";
 import Button from "../../../../shared/components/Button/Button";
@@ -8,6 +8,7 @@ import { InvalidField } from "../../../../shared/components/InvalidField/Invalid
 import { getDataFromToken } from "../../../../utils/getDataFromToken";
 import * as Yup from "yup";
 import { useHttpClient } from "../../../../shared/hooks/httpHook";
+import { config } from "../../../../utils/config";
 
 export const Account = (props) => {
   const authContext = useContext(AuthContext);
@@ -73,7 +74,7 @@ export const Account = (props) => {
       country,
     } = data;
     const response = await sendRequest(
-      "http://localhost:4000/user/update",
+      `${config.userUrl}/update`,
       "POST",
       JSON.stringify({
         name,
@@ -90,14 +91,6 @@ export const Account = (props) => {
         "Content-Type": "application/json",
       }
     );
-    // if (response.message) {
-    //   dispatchModal({
-    //     type: "OPEN_MODAL",
-    //     message: response.message,
-    //   });
-    //   setValue("password", "");
-    //   setValue("confirmPassword", "");
-    // }
   };
 
   return (
@@ -149,7 +142,6 @@ export const Account = (props) => {
               margin="dense"
             />
             <InvalidField>{errors.street?.message}</InvalidField>
-            <InvalidField>{errors.lastName?.message}</InvalidField>
             <TextField
               required
               id="houseNumber"

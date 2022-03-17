@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/cart";
 import "./CartItem.scss";
-import ScooterColors from "../../scooters/components/ScooterColors/ScooterColors";
 import ScooterRate from "../../scooters/components/ScooterRate/ScooterRate";
 
 const CartItem = ({ scooter, openSnackBar }) => {
