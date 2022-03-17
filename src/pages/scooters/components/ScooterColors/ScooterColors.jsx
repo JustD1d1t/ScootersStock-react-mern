@@ -7,7 +7,8 @@ const ScooterColors = (props) => {
         <div
           key={id}
           className="scooters__color"
-          style={{ backgroundColor: color }}
+          style={{ backgroundColor: color.color }}
+          onClick={() => props.changeScooterVariant(id)}
         ></div>
       ))}
     </div>

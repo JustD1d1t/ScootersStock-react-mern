@@ -6,7 +6,7 @@ export const Favourite = (props) => {
   const authContext = useContext(AuthContext);
   const [favourite, setFavourite] = useState([]);
   useEffect(() => {
-    const user = JSON.parse(authContext.userData);
+    const user = authContext.userData;
     const favouriteIDs = user.favourite;
     const favouriteScooters = [];
     DUMMY_SCOOTERS.forEach((scooter) => {

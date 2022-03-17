@@ -3,6 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialCartState = {
   items: [],
   totalQuantity: 0,
+  deliveryMethod: null,
+  paymentMethod: null,
+  address: {},
   changed: false,
   isUpdated: false,
 };
@@ -14,7 +17,9 @@ const cartSlice = createSlice({
   reducers: {
     addItemToCart(state, action) {
       const newItem = action.payload;
-      const existingItem = state.items.find((item) => item.id === newItem.id);
+      const existingItem = state.items.find(
+        (item) => item.id === newItem.id && item.color === newItem.color
+      );
       state.totalQuantity++;
       state.changed = true;
       if (!existingItem) {
@@ -25,7 +30,7 @@ const cartSlice = createSlice({
           totalPrice: newItem.price,
           title: newItem.title,
           image: newItem.image,
-          colors: newItem.colors,
+          color: newItem.color,
           rate: newItem.rate,
         });
       } else {
@@ -36,9 +41,11 @@ const cartSlice = createSlice({
       state.isUpdated = !state.isUpdated;
     },
     updateCart(state, action) {
-      const id = action.payload.id;
+      const { id, color } = action.payload;
       const type = action.payload.type;
-      const existingItem = state.items.find((item) => item.id === id);
+      const existingItem = state.items.find(
+        (item) => item.id === id && item.color === color
+      );
       switch (type) {
         case "ADDITION":
           existingItem.quantity++;
@@ -62,11 +69,22 @@ const cartSlice = createSlice({
       state.isUpdated = !state.isUpdated;
     },
     clearCart(state, action) {
-      console.log("test");
       state.items = [];
       state.totalQuantity = 0;
       state.changed = false;
       state.isUpdated = false;
+    },
+    setDeliveryMethod(state, action) {
+      const data = action.payload;
+      state.deliveryMethod = data.delivery;
+    },
+    setPaymentMethod(state, action) {
+      const data = action.payload;
+      state.paymentMethod = data.payment;
+    },
+    setAddress(state, action) {
+      const data = action.payload;
+      state.address = data.address;
     },
   },
 });

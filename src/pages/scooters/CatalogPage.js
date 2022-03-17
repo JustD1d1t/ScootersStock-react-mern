@@ -1,29 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ScootersCatalogList from "./components/ScootersCatalogList/ScootersCatalogList";
 import ScootersCatalogFilter from "./components/ScootersCatalogFilter/ScootersCatalogFilter";
 import { Snackbar, IconButton } from "@mui/material";
+import { useHistory } from "react-router-dom";
+import { useHttpClient } from "../../shared/hooks/httpHook";
 
 import "./CatalogPage.scss";
-import { DUMMY_SCOOTERS } from "./scooters.js";
-
-const filters = {
-  Manufacturer: [],
-  Country: [],
-  "Power Type": [],
-  "Engine Capacity": [],
-  "Wheel size": [],
-  "Seat available": [],
-};
 
 const CatalogPage = () => {
-  const [scooters, setScooters] = useState(DUMMY_SCOOTERS);
+  const [scooters, setScooters] = useState([]);
   const [open, setOpen] = useState(false);
+  const { sendRequest } = useHttpClient();
+  const history = useHistory();
+
+  useEffect(() => {
+    async function getScooters() {
+      const url = "http://localhost:4000/scooters";
+      const response = await sendRequest(url);
+      setScooters(response);
+    }
+    getScooters();
+  }, [sendRequest]);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 
@@ -44,25 +46,16 @@ const CatalogPage = () => {
     </>
   );
 
-  const filterScooters = (groupName, filterName) => {
-    let currentFilters = { ...filters };
-    let filterIndex = currentFilters[groupName].findIndex(
-      (filter) => filter === filterName
-    );
-    if (filterIndex === -1) {
-      filters[groupName].push(filterName);
-    } else {
-      filters[groupName].splice(filterIndex, 1);
+  const filterScooters = async (queryString) => {
+    history.push({
+      search: queryString,
+    });
+    let url = "http://localhost:4000/scooters";
+    if (queryString) {
+      url = url.concat("?", queryString);
     }
-    let filteredScooters = [...DUMMY_SCOOTERS];
-    for (const key in filters) {
-      if (filters[key].length) {
-        filteredScooters = filteredScooters.filter((scooter) =>
-          currentFilters[key].some((filter) => filter === scooter[key])
-        );
-      }
-    }
-    setScooters(filteredScooters);
+    const response = await sendRequest(url);
+    setScooters(response);
   };
 
   return (

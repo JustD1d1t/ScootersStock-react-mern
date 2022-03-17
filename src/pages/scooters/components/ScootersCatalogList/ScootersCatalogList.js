@@ -4,12 +4,12 @@ import "./ScootersCatalogList.scss";
 const ScootersList = (props) => {
   const scooters = props.scooters.map((scooter) => (
     <ScootersCatalogItem
-      key={scooter.id}
-      id={scooter.id}
+      key={scooter._id}
+      id={scooter._id}
       name={scooter.name}
       price={scooter.price}
       image={scooter.image}
-      colors={scooter.colors}
+      colors={scooter.color}
       rate={scooter.rate}
       openSnackBar={props.openSnackBar}
     />

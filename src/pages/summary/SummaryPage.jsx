@@ -120,14 +120,20 @@ const SummaryPage = () => {
         <div className={styles.summary__deliveryMethodsContainer}>
           <h2 className={styles.summary__title}>Delivery Methods</h2>
           <h3>Choose delivery method:</h3>
-          <DeliveryForm dispatch={dispatchSummary} goToTheTop={goToTheTop} />
+          <DeliveryForm
+            dispatchSummary={dispatchSummary}
+            goToTheTop={goToTheTop}
+          />
         </div>
       )}
       {summaryState.paymentMethods && (
         <div className={styles.summary__deliveryMethodsContainer}>
           <h2 className={styles.summary__title}>Payment Methods</h2>
           <h3>Choose payment method:</h3>
-          <PaymentForm dispatch={dispatchSummary} goToTheTop={goToTheTop} />
+          <PaymentForm
+            dispatchSummary={dispatchSummary}
+            goToTheTop={goToTheTop}
+          />
         </div>
       )}
       {summaryState.success && (

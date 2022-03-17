@@ -1,5 +1,4 @@
-import { Route, Redirect, Switch } from "react-router-dom";
-import { HashRouter } from "react-router-dom";
+import { Route, Redirect, Switch, HashRouter } from "react-router-dom";
 
 import { useContext } from "react";
 
@@ -51,9 +50,11 @@ const App = () => {
             <Route path="/cart" exact>
               <CartPage />
             </Route>
-            <Route path="/summary" exact>
-              <SummaryPage />
-            </Route>
+            {authContext.isLoggedIn && (
+              <Route path="/summary" exact>
+                <SummaryPage />
+              </Route>
+            )}
             {authContext.isLoggedIn && (
               <Route path="/user" exact>
                 <UserPage />

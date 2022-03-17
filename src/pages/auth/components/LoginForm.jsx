@@ -12,8 +12,9 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { InvalidField } from "../../../shared/components/InvalidField/InvalidField";
-import { MOCK_LOGINS } from "../../../mock/data";
 import { BasicModal } from "../../../shared/components/Modal/Modal";
+import { useHttpClient } from "../../../shared/hooks/httpHook";
+import { useHistory } from "react-router-dom";
 
 const modalReducer = (state, action) => {
   const newState = { ...state };
@@ -32,7 +33,9 @@ const modalReducer = (state, action) => {
 };
 
 export const LoginForm = ({ changeForm }) => {
+  const { sendRequest } = useHttpClient();
   const authContext = useContext(AuthContext);
+  const history = useHistory();
   const [modalState, dispatchModal] = useReducer(modalReducer, {
     modalActive: false,
     modalMessage: null,
@@ -59,29 +62,26 @@ export const LoginForm = ({ changeForm }) => {
 
   const closeModal = () => dispatchModal({ type: "CLOSE_MODAL" });
 
-  const getUserData = (data) => {
-    const user = MOCK_LOGINS.find(
-      (login) => login.email === data.email.toLowerCase()
-    );
-    return user;
-  };
-
-  const verifyUser = (user, data) => {
-    if (user.password === data.password) return true;
-  };
-
-  const onSubmit = (data) => {
-    const user = getUserData(data);
-    if (user) {
-      const isValidInputs = verifyUser(user, data);
-      if (isValidInputs) {
-        authContext.onLogin(user);
-      } else {
-        dispatchModal({ type: "OPEN_MODAL", message: "Złe hasło" });
-      }
-    } else {
-      dispatchModal({ type: "OPEN_MODAL", message: "Złe dane" });
+  const onSubmit = async (data) => {
+    const url = "http://localhost:4000/user/login";
+    const response = await sendRequest(url, "POST", JSON.stringify(data), {
+      "Content-Type": "application/json",
+    });
+    if (response.errors?.user) {
+      dispatchModal({
+        type: "OPEN_MODAL",
+        message: response.errors.user,
+      });
+      return;
+    } else if (response.errors?.password) {
+      dispatchModal({
+        type: "OPEN_MODAL",
+        message: response.errors.password,
+      });
+      return;
     }
+    authContext.onLogin(response.token);
+    history.push("/");
   };
 
   return (

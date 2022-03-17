@@ -7,8 +7,13 @@ import styles from "../../../SummaryForm.module.scss";
 import AuthContext from "../../../../../context/auth/authContext";
 import { TextField } from "@mui/material";
 import { InvalidField } from "../../../../../shared/components/InvalidField/InvalidField";
+import { getDataFromToken } from "../../../../../utils/getDataFromToken";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../../../../store/cart";
+import { useHttpClient } from "../../../../../shared/hooks/httpHook.js";
 
 const SummaryForm = ({ goToTheDelivery, goToTheTop }) => {
+  const dispatch = useDispatch();
   const authContext = useContext(AuthContext);
 
   const {
@@ -19,18 +24,13 @@ const SummaryForm = ({ goToTheDelivery, goToTheTop }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const submitForm = (data) => {
-    console.log(data);
+    dispatch(cartActions.setAddress({ address: data }));
     goToTheDelivery();
     goToTheTop();
   };
 
   useEffect(() => {
-    const user = JSON.parse(authContext.userData);
-    for (const key in user) {
-      if (key !== "password") {
-        setValue(key, user[key]);
-      }
-    }
+    getDataFromToken(setValue, authContext);
   }, [authContext, setValue]);
 
   return (

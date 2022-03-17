@@ -23,7 +23,7 @@ export const UserPage = () => {
         <UserNavigation handlePanel={handlePanel} />
       </Grid>
       <Grid item xs={12} md={10} px={1}>
-        <UserPanel accountVisible={sectionVisible} />
+        <UserPanel sectionVisible={sectionVisible} />
       </Grid>
     </Grid>
   );

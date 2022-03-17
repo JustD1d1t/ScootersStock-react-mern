@@ -5,7 +5,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./DeliveryForm";
 import formStyles from "../../../SummaryForm.module.scss";
 import styles from "./DeliveryForm.module.scss";
-export const DeliveryForm = ({ dispatch, goToTheTop }) => {
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../../../store/cart.js";
+
+export const DeliveryForm = ({ dispatchSummary, goToTheTop }) => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -13,12 +17,13 @@ export const DeliveryForm = ({ dispatch, goToTheTop }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const submitForm = (data) => {
-    dispatch({ type: "SHOW_PAYMENT_METHODS" });
+    dispatchSummary({ type: "SHOW_PAYMENT_METHODS" });
     goToTheTop();
+    dispatch(cartActions.setDeliveryMethod(data));
   };
 
   const backToSummary = () => {
-    dispatch({ type: "SHOW_DELIVERY_DATA" });
+    dispatchSummary({ type: "SHOW_DELIVERY_DATA" });
   };
 
   return (

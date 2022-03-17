@@ -3,13 +3,13 @@ import { Orders } from "../Orders/Orders";
 import { Password } from "../Password/Password";
 import { Favourite } from "../Favourite/Favourite";
 
-export const UserPanel = ({ accountVisible }) => {
+export const UserPanel = ({ sectionVisible }) => {
   return (
     <div>
-      {accountVisible === "account" && <Account />}
-      {accountVisible === "orders" && <Orders />}
-      {accountVisible === "password" && <Password />}
-      {accountVisible === "favourite" && <Favourite />}
+      {sectionVisible === "account" && <Account />}
+      {sectionVisible === "orders" && <Orders />}
+      {sectionVisible === "password" && <Password />}
+      {sectionVisible === "favourite" && <Favourite />}
     </div>
   );
 };
