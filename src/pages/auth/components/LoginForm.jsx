@@ -59,8 +59,8 @@ export const LoginForm = ({ changeForm }) => {
         closeModal={closeModal}
         modalActive={modalVisible}
       />
-      {fields.map((field) => (
-        <>
+      {fields.map((field, index) => (
+        <div key={index}>
           <TextField
             required
             id={field.name}
@@ -74,7 +74,7 @@ export const LoginForm = ({ changeForm }) => {
             margin="dense"
           />
           <InvalidField>{errors[field.name]?.message}</InvalidField>
-        </>
+        </div>
       ))}
       <FormControlLabel
         control={

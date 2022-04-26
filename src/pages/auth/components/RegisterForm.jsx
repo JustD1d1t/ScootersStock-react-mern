@@ -14,11 +14,13 @@ import { BasicModal } from "../../../shared/components/Modal/Modal";
 import { useHttpClient } from "../../../shared/hooks/httpHook";
 import { config } from "../../../utils/config";
 import { schema, fields } from "./RegisterForm.js";
+import { useHistory } from "react-router-dom";
 
 export const RegisterForm = ({ changeForm }) => {
   const { sendRequest } = useHttpClient();
   const [modalVisible, setModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const history = useHistory();
 
   const {
     register,
@@ -37,6 +39,8 @@ export const RegisterForm = ({ changeForm }) => {
     if (response.errors) {
       setModalVisible(true);
       setModalMessage(response.errors.user);
+    } else {
+      history.push("/");
     }
   };
 
@@ -47,8 +51,8 @@ export const RegisterForm = ({ changeForm }) => {
         closeModal={closeModal}
         modalActive={modalVisible}
       />
-      {fields.map((field) => (
-        <>
+      {fields.map((field, index) => (
+        <div key={index}>
           <TextField
             required
             id={field.name}
@@ -56,7 +60,7 @@ export const RegisterForm = ({ changeForm }) => {
             label={field.label}
             variant="standard"
             type={
-              field.name === "password"
+              field.name === "password" || field.name === "confirmPassword"
                 ? "password"
                 : field.name === "email"
                 ? "email"
@@ -68,7 +72,7 @@ export const RegisterForm = ({ changeForm }) => {
             margin="dense"
           />
           <InvalidField>{errors[field.name]?.message}</InvalidField>
-        </>
+        </div>
       ))}
 
       <FormControlLabel

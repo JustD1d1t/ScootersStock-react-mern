@@ -151,6 +151,7 @@ const ScootersCatalogFilter = (props) => {
 
   const openFiltersContainer = (event) => {
     event.stopPropagation();
+    console.log(event.target);
     event.target.nextElementSibling.classList.toggle("open");
   };
 
@@ -195,8 +196,10 @@ const ScootersCatalogFilter = (props) => {
         Filters
         <SVGComponentArrowDown />
       </p>
-      {/* <div className="catalog__filters-container">{filters}</div> */}
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="catalog__filters-container"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         {filters}
         <Button type="submit" size="xsmall">
           Filter

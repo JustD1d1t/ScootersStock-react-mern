@@ -2,9 +2,5 @@
 .scooters {
   &__colors {
     display: flex;
-    justify-content: center;
-    @media screen and(min-width: $medium-breakpoint) {
-      justify-content: flex-start;
-    }
   }
 }

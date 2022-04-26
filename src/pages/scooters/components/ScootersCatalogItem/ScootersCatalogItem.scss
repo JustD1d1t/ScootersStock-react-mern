@@ -2,10 +2,16 @@
 @import "../../../../mixins";
 .scooters {
   &__item {
-    display: flex;
-    flex-direction: column;
     border: 1px solid $primary-color;
     padding: 0.5rem;
+    flex-basis: 98%;
+    margin: 1%;
+    @media screen and(min-width: $medium-breakpoint) {
+      flex-basis: 48%;
+    }
+    @media screen and(min-width: $large-breakpoint) {
+      flex-basis: 31.3%;
+    }
   }
   &__favorite {
     display: flex;
@@ -22,7 +28,6 @@
   &__details {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     .scooters__add-to-cart {
       background-color: transparent;
       border: none;

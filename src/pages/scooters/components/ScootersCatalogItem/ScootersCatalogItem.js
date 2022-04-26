@@ -45,7 +45,6 @@ const ScootersCatalogItem = (props) => {
       <div className="scooters__details">
         <div>
           <p className="scooters__name">{props.name}</p>
-          <ScooterRate rate={props.rate} />
         </div>
         <button
           type="button"
