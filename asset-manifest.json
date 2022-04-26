@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ScootersStock-react-mern/static/css/main.337ea76d.css",
-    "main.js": "/ScootersStock-react-mern/static/js/main.2d9b6a9b.js",
+    "main.css": "/ScootersStock-react-mern/static/css/main.6a79ae9c.css",
+    "main.js": "/ScootersStock-react-mern/static/js/main.7cbcdad4.js",
     "static/media/banner_scooters.png": "/ScootersStock-react-mern/static/media/banner_scooters.6041757181334dd49e8f.png",
     "static/media/green.png": "/ScootersStock-react-mern/static/media/green.168d67e34a584f5f35e0.png",
     "static/media/black.png": "/ScootersStock-react-mern/static/media/black.4d7794c5f819ac02afd5.png",
@@ -17,11 +17,11 @@
     "static/media/Ultra-Blue-Ivory-125cc.png": "/ScootersStock-react-mern/static/media/Ultra-Blue-Ivory-125cc.f4075140631f5c2f7508.png",
     "static/media/red-ivory-125cc.png": "/ScootersStock-react-mern/static/media/red-ivory-125cc.c9cb4cb85100cefc591c.png",
     "index.html": "/ScootersStock-react-mern/index.html",
-    "main.337ea76d.css.map": "/ScootersStock-react-mern/static/css/main.337ea76d.css.map",
-    "main.2d9b6a9b.js.map": "/ScootersStock-react-mern/static/js/main.2d9b6a9b.js.map"
+    "main.6a79ae9c.css.map": "/ScootersStock-react-mern/static/css/main.6a79ae9c.css.map",
+    "main.7cbcdad4.js.map": "/ScootersStock-react-mern/static/js/main.7cbcdad4.js.map"
   },
   "entrypoints": [
-    "static/css/main.337ea76d.css",
-    "static/js/main.2d9b6a9b.js"
+    "static/css/main.6a79ae9c.css",
+    "static/js/main.7cbcdad4.js"
   ]
 }
