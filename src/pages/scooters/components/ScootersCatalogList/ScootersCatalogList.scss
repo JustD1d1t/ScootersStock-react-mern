@@ -1,14 +1,26 @@
 @import "../../../../variables";
+// .scooters {
+//   display: grid;
+//   margin-bottom: 4rem;
+//   justify-content: space-between;
+//   grid-row-gap: 30px;
+//   @media screen and(min-width: $medium-breakpoint) {
+//     grid-template-columns: 50% 50%;
+//     grid-template-rows: 450px;
+//   }
+//   @media screen and(min-width: $large-breakpoint) {
+//     grid-template-columns: 32% 32% 32%;
+//   }
+// }
 .scooters {
-  display: grid;
-  margin-bottom: 4rem;
-  justify-content: space-between;
-  grid-row-gap: 30px;
-  @media screen and(min-width: $medium-breakpoint) {
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 480px;
-  }
-  @media screen and(min-width: $large-breakpoint) {
-    grid-template-columns: 32% 32% 32%;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  // @media screen and(min-width: $medium-breakpoint) {
+  //   grid-template-columns: 50% 50%;
+  //   grid-template-rows: 450px;
+  // }
+  // @media screen and(min-width: $large-breakpoint) {
+  //   grid-template-columns: 32% 32% 32%;
+  // }
 }

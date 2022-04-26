@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/cart";
 import "./CartItem.scss";
-import ScooterColors from "../../scooters/components/ScooterColors/ScooterColors";
 import ScooterRate from "../../scooters/components/ScooterRate/ScooterRate";
 
 const CartItem = ({ scooter, openSnackBar }) => {
@@ -10,6 +9,7 @@ const CartItem = ({ scooter, openSnackBar }) => {
     dispatch(
       cartActions.updateCart({
         id: scooter.id,
+        color: scooter.color,
         type,
       })
     );
@@ -29,7 +29,7 @@ const CartItem = ({ scooter, openSnackBar }) => {
       <div className="cart-item__details">
         <h2 className="cart-item__title">{scooter.title}</h2>,
         <ScooterRate rate={scooter.rate} />
-        <ScooterColors colors={scooter.colors} />
+        {/* <ScooterColors colors={scooter.colors} /> */}
       </div>
       <div className="cart-item__summary">
         <div className="cart-item__amount-container">

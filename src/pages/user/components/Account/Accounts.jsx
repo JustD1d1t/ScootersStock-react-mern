@@ -1,16 +1,18 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import AuthContext from "../../../../context/auth/authContext";
 import { TextField, Paper, Box, Grid } from "@mui/material";
 import Button from "../../../../shared/components/Button/Button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { InvalidField } from "../../../../shared/components/InvalidField/InvalidField";
-import { MOCK_LOGINS } from "../../../../mock/data";
+import { getDataFromToken } from "../../../../utils/getDataFromToken";
 import * as Yup from "yup";
+import { useHttpClient } from "../../../../shared/hooks/httpHook";
+import { config } from "../../../../utils/config";
 
 export const Account = (props) => {
   const authContext = useContext(AuthContext);
-  const [userEmail, setUserEmail] = useState(null);
+  const { sendRequest } = useHttpClient();
   const schema = Yup.object().shape({
     name: Yup.string()
       .required("Name is required")
@@ -57,20 +59,38 @@ export const Account = (props) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   useEffect(() => {
-    const user = JSON.parse(authContext.userData);
-    setUserEmail(user.email);
-    for (const key in user) {
-      if (key !== "password") {
-        setValue(key, user[key]);
-      }
-    }
+    getDataFromToken(setValue, authContext);
   }, [authContext, setValue]);
 
-  const onSubmit = (data) => {
-    const user = MOCK_LOGINS.find((login) => login.email === userEmail);
-    const mockId = MOCK_LOGINS.indexOf(user);
-    MOCK_LOGINS[mockId] = { ...user, ...data };
-    authContext.userData = JSON.stringify({ ...data });
+  const onSubmit = async (data) => {
+    const {
+      name,
+      lastName,
+      street,
+      houseNumber,
+      flatNumber,
+      zipCode,
+      city,
+      country,
+    } = data;
+    const response = await sendRequest(
+      `${config.userUrl}/update`,
+      "POST",
+      JSON.stringify({
+        name,
+        lastName,
+        street,
+        houseNumber,
+        flatNumber,
+        zipCode,
+        city,
+        country,
+        userId: authContext.userData.id,
+      }),
+      {
+        "Content-Type": "application/json",
+      }
+    );
   };
 
   return (
@@ -122,7 +142,6 @@ export const Account = (props) => {
               margin="dense"
             />
             <InvalidField>{errors.street?.message}</InvalidField>
-            <InvalidField>{errors.lastName?.message}</InvalidField>
             <TextField
               required
               id="houseNumber"

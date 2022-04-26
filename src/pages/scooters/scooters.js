@@ -21,13 +21,13 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Forte",
     Country: "Japan",
     "Power Type": "Petrol",
-    "Engine Capacity": "50cm3",
-    "Wheel size": "10 inches",
-    "Seat available": "1 person",
+    "Engine Capacity": 50,
+    "Wheel size": 10,
+    "Seat available": 1,
     id: 1,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
-    "Top Speed": "30 mph",
+    "Top Speed": 30,
     "Delivery Date": [
       {
         country: "England",
@@ -56,13 +56,13 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Honda",
     Country: "China",
     "Power Type": "Electric",
-    "Engine Capacity": "80cm3",
-    "Wheel size": "12 inches",
-    "Seat available": "2 person",
+    "Engine Capacity": 80,
+    "Wheel size": 12,
+    "Seat available": 2,
     id: 2,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
-    "Top Speed": "35 mph",
+    "Top Speed": 35,
     "Delivery Date": [
       {
         country: "England",
@@ -91,13 +91,13 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Moto Tech",
     Country: "Japan",
     "Power Type": "Petrol",
-    "Engine Capacity": "100cm3",
-    "Wheel size": "10 inches",
-    "Seat available": "1 person",
+    "Engine Capacity": 100,
+    "Wheel size": 10,
+    "Seat available": 1,
     id: 3,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
-    "Top Speed": "40 mph",
+    "Top Speed": 40,
     "Delivery Date": [
       {
         country: "England",
@@ -126,13 +126,13 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Mustang",
     Country: "China",
     "Power Type": "Electric",
-    "Engine Capacity": "125cm3",
-    "Wheel size": "12 inches",
-    "Seat available": "2 person",
+    "Engine Capacity": 125,
+    "Wheel size": 12,
+    "Seat available": 2,
     id: 4,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
-    "Top Speed": "45 mph",
+    "Top Speed": 45,
     "Delivery Date": [
       {
         country: "England",
@@ -161,9 +161,9 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Spark",
     Country: "Japan",
     "Power Type": "Petrol",
-    "Engine Capacity": "150cm3",
-    "Wheel size": "10 inches",
-    "Seat available": "1 person",
+    "Engine Capacity": 150,
+    "Wheel size": 10,
+    "Seat available": 1,
     id: 5,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
@@ -196,13 +196,13 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Suzuki",
     Country: "China",
     "Power Type": "Electric",
-    "Engine Capacity": "50cm3",
-    "Wheel size": "12 inches",
-    "Seat available": "2 person",
+    "Engine Capacity": 50,
+    "Wheel size": 12,
+    "Seat available": 2,
     id: 6,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
-    "Top Speed": "33 mph",
+    "Top Speed": 33,
     "Delivery Date": [
       {
         country: "England",
@@ -231,13 +231,13 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Viper",
     Country: "Japan",
     "Power Type": "Petrol",
-    "Engine Capacity": "80cm3",
-    "Wheel size": "10 inches",
-    "Seat available": "1 person",
+    "Engine Capacity": 80,
+    "Wheel size": 10,
+    "Seat available": 1,
     id: 7,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
-    "Top Speed": "37 mph",
+    "Top Speed": 37,
     "Delivery Date": [
       {
         country: "England",
@@ -266,13 +266,13 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Yiben",
     Country: "China",
     "Power Type": "Electric",
-    "Engine Capacity": "100cm3",
-    "Wheel size": "12 inches",
-    "Seat available": "2 person",
+    "Engine Capacity": 100,
+    "Wheel size": 12,
+    "Seat available": 2,
     id: 8,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
-    "Top Speed": "42 mph",
+    "Top Speed": 42,
     "Delivery Date": [
       {
         country: "England",
@@ -301,13 +301,13 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Yamaha",
     Country: "Japan",
     "Power Type": "Petrol",
-    "Engine Capacity": "125cm3",
-    "Wheel size": "10 inches",
-    "Seat available": "1 person",
+    "Engine Capacity": 125,
+    "Wheel size": 10,
+    "Seat available": 1,
     id: 9,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
-    "Top Speed": "48 mph",
+    "Top Speed": 48,
     "Delivery Date": [
       {
         country: "England",
@@ -336,13 +336,13 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Forte",
     Country: "China",
     "Power Type": "Electric",
-    "Engine Capacity": "150cm3",
-    "Wheel size": "12 inches",
-    "Seat available": "2 person",
+    "Engine Capacity": 150,
+    "Wheel size": 12,
+    "Seat available": 2,
     id: 10,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
-    "Top Speed": "28 mph",
+    "Top Speed": 38,
     "Delivery Date": [
       {
         country: "England",
@@ -371,13 +371,13 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Honda",
     Country: "Japan",
     "Power Type": "Petrol",
-    "Engine Capacity": "50cm3",
-    "Wheel size": "10 inches",
-    "Seat available": "1 person",
+    "Engine Capacity": 50,
+    "Wheel size": 10,
+    "Seat available": 1,
     id: 11,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
-    "Top Speed": "34 mph",
+    "Top Speed": 34,
     "Delivery Date": [
       {
         country: "England",
@@ -406,13 +406,13 @@ export const DUMMY_SCOOTERS = [
     Manufacturer: "Moto Tech",
     Country: "China",
     "Power Type": "Electric",
-    "Engine Capacity": "80cm3",
-    "Wheel size": "12 inches",
-    "Seat available": "2 person",
+    "Engine Capacity": 80,
+    "Wheel size": 12,
+    "Seat available": 2,
     id: 12,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing sed urna neque ultrices. Hendrerit quam sit lacus ac at rhoncus pellentesque ac. Turpis facilisi justo tincidunt erat pellentesque sagittis amet etiam. Laoreet magna nec sit habitasse platea sit nunc. ",
-    "Top Speed": "37 mph",
+    "Top Speed": 37,
     "Delivery Date": [
       {
         country: "England",

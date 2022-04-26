@@ -1,5 +1,4 @@
-import { Route, Redirect, Switch } from "react-router-dom";
-import { HashRouter } from "react-router-dom";
+import { Route, Redirect, Switch, HashRouter } from "react-router-dom";
 
 import { useContext } from "react";
 
@@ -14,6 +13,12 @@ import CartPage from "./pages/cart/CartPage";
 import SummaryPage from "./pages/summary/SummaryPage.jsx";
 import { AuthPage } from "./pages/auth/AuthPage.jsx";
 import { UserPage } from "./pages/user/UserPage";
+import { Account } from "./pages/user/components/Account/Accounts";
+import { Password } from "./pages/user/components/Password/Password";
+import { Favourite } from "./pages/user/components/Favourite/Favourite";
+import { Orders } from "./pages/user/components/Orders/Orders";
+import { ScooterForm } from "./pages/user/components/ScooterForm/ScooterForm.jsx";
+
 import AuthContext from "./context/auth/authContext";
 
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
@@ -51,12 +56,51 @@ const App = () => {
             <Route path="/cart" exact>
               <CartPage />
             </Route>
-            <Route path="/summary" exact>
-              <SummaryPage />
-            </Route>
+            {authContext.isLoggedIn && (
+              <Route path="/summary" exact>
+                <SummaryPage />
+              </Route>
+            )}
             {authContext.isLoggedIn && (
               <Route path="/user" exact>
-                <UserPage />
+                <UserPage>
+                  <Account />
+                </UserPage>
+              </Route>
+            )}
+            {authContext.isLoggedIn && (
+              <Route path="/user/account" exact>
+                <UserPage>
+                  <Account />
+                </UserPage>
+              </Route>
+            )}
+            {authContext.isLoggedIn && (
+              <Route path="/user/favourite" exact>
+                <UserPage>
+                  <Favourite />
+                </UserPage>
+              </Route>
+            )}
+            {authContext.isLoggedIn && (
+              <Route path="/user/password" exact>
+                <UserPage>
+                  <Password />
+                </UserPage>
+              </Route>
+            )}
+            {authContext.isLoggedIn && (
+              <Route path="/user/orders" exact>
+                <UserPage>
+                  <Orders />
+                </UserPage>
+              </Route>
+            )}
+            {authContext.isLoggedIn && authContext.userData?.admin && (
+              <Route path="/user/add-scooter" exact>
+                <UserPage>
+                  <ScooterForm />
+                </UserPage>
               </Route>
             )}
             {!authContext.isLoggedIn && (

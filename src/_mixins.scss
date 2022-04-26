@@ -6,18 +6,4 @@
   position: relative;
   border: 1px solid $primary-color;
   cursor: pointer;
-  &:first-of-type:after {
-    content: "";
-    position: absolute;
-    display: block;
-    left: 11px;
-    top: 6px;
-    width: 5px;
-    height: 12px;
-    border: solid $secondary-color;
-    border-width: 0 2px 2px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
 }

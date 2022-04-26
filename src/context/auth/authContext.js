@@ -1,5 +1,6 @@
-import { createContext, useState, useEffect, useMemo } from "react";
+import { createContext, useState, useMemo, useEffect } from "react";
 import PropTypes from "prop-types";
+import { jwt } from "../../utils/jsonWebToken";
 
 const AuthContext = createContext({
   isLoggedIn: false,
@@ -13,24 +14,27 @@ export const AuthContextProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const storedUserLoggedInInformation = localStorage.getItem("isLoggedIn");
-    const loggedInUser = localStorage.getItem("user");
-    if (storedUserLoggedInInformation === "1") {
-      setIsLoggedIn(true);
-      setUserData(loggedInUser);
+    const token = localStorage.getItem("token");
+    if (token) {
+      const isTokenExpired = jwt.isTokenExpired(token);
+      if (!isTokenExpired) {
+        const tokenData = jwt.parseJwt(token);
+        setUserData(tokenData);
+        setIsLoggedIn(true);
+      }
     }
   }, []);
-
   const logoutHandler = () => {
-    localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
+    setUserData(null);
+    localStorage.removeItem("token");
   };
 
-  const loginHandler = (user) => {
-    localStorage.setItem("isLoggedIn", "1");
-    localStorage.setItem("user", JSON.stringify(user));
+  const loginHandler = (token) => {
+    localStorage.setItem("token", token);
     setIsLoggedIn(true);
-    setUserData(JSON.stringify(user));
+    const tokenData = jwt.parseJwt(token);
+    setUserData(tokenData);
   };
 
   const context = useMemo(
