@@ -29,7 +29,11 @@ export const PaymentForm = ({ dispatchSummary, goToTheTop }) => {
       return {
         scooter: scooter.id,
         color: scooter.color,
+        title: scooter.title,
+        image: scooter.image,
         quantity: scooter.quantity,
+        price: scooter.price,
+        totalPrice: scooter.totalPrice,
       };
     });
     const response = await sendRequest(
@@ -41,7 +45,7 @@ export const PaymentForm = ({ dispatchSummary, goToTheTop }) => {
         deliveryMethod: order.deliveryMethod,
         paymentMethod: order.paymentMethod,
         address: order.address,
-        user: authContext.userData.id,
+        userId: authContext.userData.id,
       }),
       {
         "Content-Type": "application/json",

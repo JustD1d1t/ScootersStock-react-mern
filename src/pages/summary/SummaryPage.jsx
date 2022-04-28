@@ -110,7 +110,11 @@ const SummaryPage = () => {
             <div className={styles.summary__detailsCart}>
               <h3 className={styles.summary__detailsTitle}>Total</h3>
               {scooters.map((scooter, index) => (
-                <SummaryItem key={scooter.id} scooter={scooter} index={index} />
+                <SummaryItem
+                  key={`${scooter.id}_${scooter.color}`}
+                  scooter={scooter}
+                  index={index}
+                />
               ))}
             </div>
           </div>

@@ -16,7 +16,7 @@ const CatalogPage = () => {
 
   useEffect(() => {
     async function getScooters() {
-      const url = "http://localhost:4000/scooters";
+      const url = config.scootersUrl;
       const response = await sendRequest(url);
       setScooters(response);
     }

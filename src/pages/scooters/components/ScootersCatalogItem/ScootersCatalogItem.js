@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../../store/cart";
@@ -7,12 +7,17 @@ import "./ScootersCatalogItem.scss";
 
 import SVGComponentHeart from "../../../../shared/components/svgComponents/SVGComponentHeart";
 import SVGComponentCart from "../../../../shared/components/svgComponents/SVGComponentCart";
-import ScooterRate from "../ScooterRate/ScooterRate";
 import ScooterColors from "../ScooterColors/ScooterColors";
+import { useHttpClient } from "../../../../shared/hooks/httpHook";
+import { config } from "../../../../utils/config";
+import AuthContext from "../../../../context/auth/authContext";
+
 const ScootersCatalogItem = (props) => {
   const [scooterColor, setScooterColor] = useState(0);
   const dispatch = useDispatch();
   const image = useRef();
+  const { sendRequest } = useHttpClient();
+  const authCtx = useContext(AuthContext);
 
   const addItemHandler = () => {
     dispatch(
@@ -28,15 +33,26 @@ const ScootersCatalogItem = (props) => {
     props.openSnackBar();
   };
 
+  const toggleFavouriteScooter = async () => {
+    const data = {
+      scooterId: props.id,
+      userId: authCtx.userData.id,
+    };
+    const url = `${config.userUrl}/add-to-favourite`;
+    const response = await sendRequest(url, "PATCH", JSON.stringify(data), {
+      "Content-Type": "application/json",
+    });
+  };
+
   const changeScooterVariant = (id) => {
     setScooterColor(parseInt(id));
   };
 
   return (
     <div className="scooters__item">
-      <div className="scooters__favorite">
+      <button className="scooters__favorite" onClick={toggleFavouriteScooter}>
         <SVGComponentHeart />
-      </div>
+      </button>
       <Link to={`/scooters/${props.id}`}>
         <div className="scooters__image">
           <img ref={image} src={props.colors[scooterColor].url} alt="" />

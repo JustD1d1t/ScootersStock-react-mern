@@ -1,20 +1,21 @@
 import ScootersCatalogList from "../../../scooters/components/ScootersCatalogList/ScootersCatalogList";
 import { useContext, useState, useEffect } from "react";
 import AuthContext from "../../../../context/auth/authContext";
-import { DUMMY_SCOOTERS } from "../../../scooters/scooters";
+import { useHttpClient } from "../../../../shared/hooks/httpHook";
+import { config } from "../../../../utils/config";
+
 export const Favourite = (props) => {
   const authContext = useContext(AuthContext);
   const [favourite, setFavourite] = useState([]);
+  const { sendRequest, isLoading } = useHttpClient();
   useEffect(() => {
-    const user = authContext.userData;
-    const favouriteIDs = user.favourite;
-    const favouriteScooters = [];
-    DUMMY_SCOOTERS.forEach((scooter) => {
-      if (favouriteIDs.includes(scooter.id)) {
-        favouriteScooters.push(scooter);
-      }
-    });
-    setFavourite(favouriteScooters);
-  }, [authContext]);
+    const url = `${config.userUrl}/favourite?userId=${authContext.userData.id}`;
+    const getFavourites = async () => {
+      const response = await sendRequest(url);
+      // setFavourite(response.favourite);
+      console.log(favourite);
+    };
+    getFavourites();
+  }, [authContext, sendRequest]);
   return <div>{<ScootersCatalogList scooters={favourite} />}</div>;
 };

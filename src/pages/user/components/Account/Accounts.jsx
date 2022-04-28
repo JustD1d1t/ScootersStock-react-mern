@@ -1,6 +1,13 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../../../context/auth/authContext";
-import { TextField, Paper, Box, Grid } from "@mui/material";
+import {
+  TextField,
+  Paper,
+  Box,
+  Grid,
+  Snackbar,
+  IconButton,
+} from "@mui/material";
 import Button from "../../../../shared/components/Button/Button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,6 +20,18 @@ import { config } from "../../../../utils/config";
 export const Account = (props) => {
   const authContext = useContext(AuthContext);
   const { sendRequest } = useHttpClient();
+  const [open, setOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const openSnackBar = () => {
+    setOpen(true);
+  };
   const schema = Yup.object().shape({
     name: Yup.string()
       .required("Name is required")
@@ -62,6 +81,19 @@ export const Account = (props) => {
     getDataFromToken(setValue, authContext);
   }, [authContext, setValue]);
 
+  const action = (
+    <>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        X
+      </IconButton>
+    </>
+  );
+
   const onSubmit = async (data) => {
     const {
       name,
@@ -75,7 +107,7 @@ export const Account = (props) => {
     } = data;
     const response = await sendRequest(
       `${config.userUrl}/update`,
-      "POST",
+      "PATCH",
       JSON.stringify({
         name,
         lastName,
@@ -91,128 +123,149 @@ export const Account = (props) => {
         "Content-Type": "application/json",
       }
     );
+    if (response.message === "Data changed") {
+      authContext.userData.name = name;
+      authContext.userData.lastName = lastName;
+      authContext.userData.street = street;
+      authContext.userData.houseNumber = houseNumber;
+      authContext.userData.flatNumber = flatNumber;
+      authContext.userData.zipCode = zipCode;
+      authContext.userData.city = city;
+      authContext.userData.country = country;
+    }
+    setSnackbarMessage(response.message);
+    openSnackBar();
   };
 
   return (
-    <Grid
-      container
-      direction="row"
-      justifyContent="center"
-      sx={{ margin: "auto 0" }}
-    >
-      <Grid item xs={12} sm={8} md={6}>
-        <Paper>
-          <Box px={2} py={1}>
-            <TextField
-              required
-              id="name"
-              name="name"
-              label="Name"
-              variant="standard"
-              type="text"
-              {...register("name")}
-              error={errors.name ? true : false}
-              fullWidth
-              margin="dense"
-            />
-            <InvalidField>{errors.name?.message}</InvalidField>
-            <TextField
-              required
-              id="lastName"
-              name="lastName"
-              label="Last name"
-              variant="standard"
-              type="text"
-              {...register("lastName")}
-              error={errors.lastName ? true : false}
-              fullWidth
-              margin="dense"
-            />
-            <InvalidField>{errors.lastName?.message}</InvalidField>
-            <TextField
-              required
-              id="street"
-              name="street"
-              label="Street"
-              variant="standard"
-              type="text"
-              {...register("street")}
-              error={errors.street ? true : false}
-              fullWidth
-              margin="dense"
-            />
-            <InvalidField>{errors.street?.message}</InvalidField>
-            <TextField
-              required
-              id="houseNumber"
-              name="houseNumber"
-              label="House Number"
-              variant="standard"
-              type="text"
-              {...register("houseNumber")}
-              error={errors.houseNumber ? true : false}
-              fullWidth
-              margin="dense"
-            />
-            <InvalidField>{errors.houseNumber?.message}</InvalidField>
-            <TextField
-              required
-              id="flatNumber"
-              name="flatNumber"
-              label="Flat Number"
-              variant="standard"
-              type="text"
-              {...register("flatNumber")}
-              error={errors.flatNumber ? true : false}
-              fullWidth
-              margin="dense"
-            />
-            <InvalidField>{errors.flatNumber?.message}</InvalidField>
-            <TextField
-              required
-              id="zipCode"
-              name="zipCode"
-              label="Zip Code"
-              variant="standard"
-              type="text"
-              {...register("zipCode")}
-              error={errors.zipCode ? true : false}
-              fullWidth
-              margin="dense"
-            />
-            <InvalidField>{errors.zipCode?.message}</InvalidField>
-            <TextField
-              required
-              id="city"
-              name="city"
-              label="City"
-              variant="standard"
-              type="text"
-              {...register("city")}
-              error={errors.city ? true : false}
-              fullWidth
-              margin="dense"
-            />
-            <InvalidField>{errors.city?.message}</InvalidField>
-            <TextField
-              required
-              id="country"
-              name="country"
-              label="Country"
-              variant="standard"
-              type="text"
-              {...register("country")}
-              error={errors.country ? true : false}
-              fullWidth
-              margin="dense"
-            />
-            <InvalidField>{errors.country?.message}</InvalidField>
-            <Button onClick={handleSubmit(onSubmit)} size="xsmall" center>
-              Change your informations
-            </Button>
-          </Box>
-        </Paper>
+    <>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        message={snackbarMessage}
+        action={action}
+      />
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        sx={{ margin: "auto 0" }}
+      >
+        <Grid item xs={12} sm={8} md={6}>
+          <Paper>
+            <Box px={2} py={1}>
+              <TextField
+                required
+                id="name"
+                name="name"
+                label="Name"
+                variant="standard"
+                type="text"
+                {...register("name")}
+                error={errors.name ? true : false}
+                fullWidth
+                margin="dense"
+              />
+              <InvalidField>{errors.name?.message}</InvalidField>
+              <TextField
+                required
+                id="lastName"
+                name="lastName"
+                label="Last name"
+                variant="standard"
+                type="text"
+                {...register("lastName")}
+                error={errors.lastName ? true : false}
+                fullWidth
+                margin="dense"
+              />
+              <InvalidField>{errors.lastName?.message}</InvalidField>
+              <TextField
+                required
+                id="street"
+                name="street"
+                label="Street"
+                variant="standard"
+                type="text"
+                {...register("street")}
+                error={errors.street ? true : false}
+                fullWidth
+                margin="dense"
+              />
+              <InvalidField>{errors.street?.message}</InvalidField>
+              <TextField
+                required
+                id="houseNumber"
+                name="houseNumber"
+                label="House Number"
+                variant="standard"
+                type="text"
+                {...register("houseNumber")}
+                error={errors.houseNumber ? true : false}
+                fullWidth
+                margin="dense"
+              />
+              <InvalidField>{errors.houseNumber?.message}</InvalidField>
+              <TextField
+                required
+                id="flatNumber"
+                name="flatNumber"
+                label="Flat Number"
+                variant="standard"
+                type="text"
+                {...register("flatNumber")}
+                error={errors.flatNumber ? true : false}
+                fullWidth
+                margin="dense"
+              />
+              <InvalidField>{errors.flatNumber?.message}</InvalidField>
+              <TextField
+                required
+                id="zipCode"
+                name="zipCode"
+                label="Zip Code"
+                variant="standard"
+                type="text"
+                {...register("zipCode")}
+                error={errors.zipCode ? true : false}
+                fullWidth
+                margin="dense"
+              />
+              <InvalidField>{errors.zipCode?.message}</InvalidField>
+              <TextField
+                required
+                id="city"
+                name="city"
+                label="City"
+                variant="standard"
+                type="text"
+                {...register("city")}
+                error={errors.city ? true : false}
+                fullWidth
+                margin="dense"
+              />
+              <InvalidField>{errors.city?.message}</InvalidField>
+              <TextField
+                required
+                id="country"
+                name="country"
+                label="Country"
+                variant="standard"
+                type="text"
+                {...register("country")}
+                error={errors.country ? true : false}
+                fullWidth
+                margin="dense"
+              />
+              <InvalidField>{errors.country?.message}</InvalidField>
+              <Button onClick={handleSubmit(onSubmit)} size="xsmall" center>
+                Change your informations
+              </Button>
+            </Box>
+          </Paper>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
