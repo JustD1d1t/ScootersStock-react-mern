@@ -25,7 +25,9 @@ export const PaymentForm = ({ dispatchSummary, goToTheTop }) => {
 
   const submitForm = async (data) => {
     dispatch(cartActions.setPaymentMethod(data));
+    let totalPriceForAll = 0;
     const scootersInOrder = order.items.map((scooter) => {
+      totalPriceForAll += scooter.totalPrice;
       return {
         scooter: scooter.id,
         color: scooter.color,
@@ -36,6 +38,7 @@ export const PaymentForm = ({ dispatchSummary, goToTheTop }) => {
         totalPrice: scooter.totalPrice,
       };
     });
+
     const response = await sendRequest(
       `${config.orderUrl}`,
       "POST",
@@ -46,6 +49,7 @@ export const PaymentForm = ({ dispatchSummary, goToTheTop }) => {
         paymentMethod: order.paymentMethod,
         address: order.address,
         userId: authContext.userData.id,
+        totalPriceForAll,
       }),
       {
         "Content-Type": "application/json",

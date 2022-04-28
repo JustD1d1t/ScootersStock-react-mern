@@ -8,7 +8,7 @@ export const UserPage = ({ children }) => {
       <Grid item xs={12} md={2}>
         <UserNavigation />
       </Grid>
-      <Grid item xs={12} md={10} px={1}>
+      <Grid item xs={12} md={10} px={1} sx={{ position: "relative" }}>
         {children}
       </Grid>
     </Grid>

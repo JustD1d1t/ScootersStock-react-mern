@@ -79,7 +79,7 @@ const MainNavigation = () => {
               <PersonIcon />
             </NavLink>
           )}
-          <NavLink to="/" aria-label="Ulubione">
+          <NavLink to="/user/favourite" aria-label="Ulubione">
             <FavoriteBorderIcon />
           </NavLink>
 
