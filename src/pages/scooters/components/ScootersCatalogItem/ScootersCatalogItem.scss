@@ -14,8 +14,11 @@
     }
   }
   &__favorite {
-    display: flex;
-    justify-content: flex-end;
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+    display: block;
+    cursor: pointer;
   }
   &__image {
     height: 300px;
