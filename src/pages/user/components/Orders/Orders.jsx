@@ -19,12 +19,10 @@ export const Orders = (props) => {
     getOrders();
   }, [authContext, sendRequest]);
 
-  orders.map((order) => console.log(order));
-
   return (
     <>
       {isLoading ? (
-        <LoadingSpinner />
+        <LoadingSpinner asOverlay />
       ) : (
         <div>
           {orders.map((order) => (

@@ -5,13 +5,13 @@ import { Snackbar, IconButton } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/httpHook";
 import { config } from "../../utils/config";
-
-import "./CatalogPage.scss";
+import LoadingSpinner from "../../shared/components/LoadingSpinner/LoadingSpinner";
+import styles from "./CatalogPage.module.scss";
 
 const CatalogPage = () => {
   const [scooters, setScooters] = useState([]);
   const [open, setOpen] = useState(false);
-  const { sendRequest } = useHttpClient();
+  const { sendRequest, isLoading } = useHttpClient();
   const history = useHistory();
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const CatalogPage = () => {
   };
 
   return (
-    <section className="catalog">
+    <section className={styles.catalog}>
       <Snackbar
         open={open}
         autoHideDuration={3000}
@@ -69,7 +69,11 @@ const CatalogPage = () => {
         action={action}
       />
       <ScootersCatalogFilter filterScooters={filterScooters} />
-      <ScootersCatalogList scooters={scooters} openSnackBar={openSnackBar} />
+      {isLoading ? (
+        <LoadingSpinner asOverlay />
+      ) : (
+        <ScootersCatalogList scooters={scooters} openSnackBar={openSnackBar} />
+      )}
     </section>
   );
 };

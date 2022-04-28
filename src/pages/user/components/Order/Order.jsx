@@ -48,45 +48,57 @@ export const Order = ({ order }) => {
                 </p>
                 {order.items.map((item) => {
                   return (
-                    <div key={item._id}>
-                      <Grid container>
-                        <Grid item xs={8}>
-                          <Grid container xs={12} my={1}>
-                            <Grid item xs={6}>
-                              <p>Scooter: {item.title}</p>
-                            </Grid>
-                            <Grid item xs={6}>
-                              <p>Color: {item.color}</p>
-                            </Grid>
+                    <Grid container key={item._id}>
+                      <Grid item xs={8}>
+                        <Grid container my={1}>
+                          <Grid item xs={6}>
+                            <p>Scooter: {item.title}</p>
                           </Grid>
-                          <Grid container xs={12} my={1}>
-                            <Grid item xs={6}>
-                              <p>Quantity: {item.quantity}</p>
-                            </Grid>
-                            <Grid item xs={6}>
-                              <p>Price: {item.price}</p>
-                            </Grid>
-                          </Grid>
-                          <Grid
-                            container
-                            xs={12}
-                            my={1}
-                            justifyContent="flex-end"
-                          >
-                            <Grid item xs={6}>
-                              <p>Total price: {item.totalPrice}</p>
-                            </Grid>
+                          <Grid item xs={6}>
+                            <p>Color: {item.color}</p>
                           </Grid>
                         </Grid>
-                        <Grid item xs={4}>
-                          <div className={styles.order__scooterImage}>
-                            <img src={item.image} alt="" />
-                          </div>
+                        <Grid container my={1}>
+                          <Grid item xs={6}>
+                            <p>Quantity: {item.quantity}</p>
+                          </Grid>
+                          <Grid item xs={6}>
+                            <p>Price: {item.price}</p>
+                          </Grid>
+                        </Grid>
+                        <Grid
+                          container
+                          xs={12}
+                          my={1}
+                          justifyContent="flex-end"
+                        >
+                          <Grid item xs={6}>
+                            <p>Total price: {item.totalPrice}</p>
+                          </Grid>
                         </Grid>
                       </Grid>
-                    </div>
+                      <Grid item xs={4}>
+                        <div className={styles.order__scooterImage}>
+                          <img src={item.image} alt="" />
+                        </div>
+                      </Grid>
+                    </Grid>
                   );
                 })}
+              </Grid>
+              <Grid container>
+                <Grid item xs={12} my={1}>
+                  <p className={styles.order__orderSectionTitle}>Details</p>
+                </Grid>
+                <Grid item xs={4} my={1}>
+                  <p>Delivery method: {order.deliveryMethod}</p>
+                </Grid>
+                <Grid item xs={4} my={1}>
+                  <p>Payment method: {order.paymentMethod}</p>
+                </Grid>
+                <Grid item xs={4} my={1}>
+                  <p>Total price: {order.totalPriceForAll}</p>
+                </Grid>
               </Grid>
             </Grid>
           </Box>

@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import AuthContext from "../../../../context/auth/authContext";
 import { useHttpClient } from "../../../../shared/hooks/httpHook";
 import { config } from "../../../../utils/config";
+import LoadingSpinner from "../../../../shared/components/LoadingSpinner/LoadingSpinner";
 
 export const Favourite = (props) => {
   const authContext = useContext(AuthContext);
@@ -12,10 +13,17 @@ export const Favourite = (props) => {
     const url = `${config.userUrl}/favourite?userId=${authContext.userData.id}`;
     const getFavourites = async () => {
       const response = await sendRequest(url);
-      // setFavourite(response.favourite);
-      console.log(favourite);
+      setFavourite(response.favourite);
     };
     getFavourites();
   }, [authContext, sendRequest]);
-  return <div>{<ScootersCatalogList scooters={favourite} />}</div>;
+  return (
+    <>
+      {isLoading ? (
+        <LoadingSpinner asOverlay />
+      ) : (
+        <ScootersCatalogList scooters={favourite} />
+      )}
+    </>
+  );
 };
