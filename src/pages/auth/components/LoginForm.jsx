@@ -41,15 +41,18 @@ export const LoginForm = ({ changeForm }) => {
     if (response.errors?.user) {
       setModalVisible(true);
       setModalMessage(response.errors.user);
-
       return;
     } else if (response.errors?.password) {
       setModalVisible(true);
       setModalMessage(response.errors.password);
       return;
     }
-    authContext.onLogin(response.token);
-    history.push("/");
+    setModalVisible(true);
+    setModalMessage(response.message);
+    setTimeout(() => {
+      authContext.onLogin(response.token);
+      history.push("/");
+    }, 2000);
   };
 
   return (

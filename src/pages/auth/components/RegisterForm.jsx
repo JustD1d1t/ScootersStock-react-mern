@@ -36,11 +36,15 @@ export const RegisterForm = ({ changeForm }) => {
     const response = await sendRequest(url, "POST", JSON.stringify(data), {
       "Content-Type": "application/json",
     });
-    if (response.errors) {
+    if (response.error) {
       setModalVisible(true);
-      setModalMessage(response.errors.user);
+      setModalMessage(response.error);
     } else {
-      history.push("/");
+      setModalVisible(true);
+      setModalMessage(response.message);
+      setTimeout(() => {
+        history.push("/");
+      }, 2000);
     }
   };
 
