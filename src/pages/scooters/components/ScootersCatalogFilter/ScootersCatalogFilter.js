@@ -151,7 +151,6 @@ const ScootersCatalogFilter = (props) => {
 
   const openFiltersContainer = (event) => {
     event.stopPropagation();
-    console.log(event.target);
     event.target.nextElementSibling.classList.toggle("open");
   };
 
