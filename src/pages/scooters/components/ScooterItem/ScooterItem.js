@@ -1,14 +1,33 @@
+import { useState } from "react";
+
 import "./ScooterItem.scss";
 import Button from "../../../../shared/components/Button/Button";
 import { cartActions } from "../../../../store/cart";
 import { useDispatch } from "react-redux";
+import { Snackbar, IconButton } from "@mui/material";
 
 import ScooterRate from "../ScooterRate/ScooterRate";
 import ScooterColors from "../ScooterColors/ScooterColors";
 
-const ScooterItem = (props) => {
-  let scooter = props.scooter;
+const ScooterItem = ({ scooter }) => {
   const dispatch = useDispatch();
+  const [scooterColor, setScooterColor] = useState(0);
+  const [open, setOpen] = useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const openSnackBar = () => {
+    setOpen(true);
+  };
+
+  const changeScooterVariant = (id) => {
+    setScooterColor(parseInt(id));
+  };
 
   const addItemHandler = () => {
     dispatch(
@@ -16,12 +35,25 @@ const ScooterItem = (props) => {
         id: scooter.id,
         title: scooter.name,
         price: Math.round(scooter.price * 100) / 100,
-        image: scooter.image,
+        image: scooter.color[scooterColor].url,
         rate: scooter.rate,
-        colors: scooter.colors,
+        color: scooter.color[scooterColor].color,
       })
     );
+    openSnackBar();
   };
+  const action = (
+    <>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        X
+      </IconButton>
+    </>
+  );
 
   const scrollTo = (id) => {
     const element = document.getElementById(id);
@@ -29,18 +61,28 @@ const ScooterItem = (props) => {
   };
   return (
     <>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        message="Added to cart"
+        action={action}
+      />
       <div className="scooter-item">
         <div className="scooter-item__image">
-          <img src={scooter.image} alt="" />
+          <img src={scooter?.color[scooterColor].url} alt="" />
         </div>
         <div className="scooter-item__details">
           <div className="scooter-item__name">
-            <h1>{scooter.name}</h1>
-            <p>{scooter.price}</p>
+            <h1>{scooter?.name}</h1>
+            <p>{scooter?.price}</p>
           </div>
-          <ScooterRate rate={scooter.rate} />
-          <ScooterColors colors={scooter.colors} />
-          <p className="scooter-item__description">{scooter.description}</p>
+          <ScooterColors
+            colors={scooter?.color}
+            changeScooterVariant={changeScooterVariant}
+          />
+          <ScooterRate rate={scooter?.rate} />
+          <p className="scooter-item__description">{scooter?.description}</p>
           <button
             className="scooter-item__scroll-to"
             onClick={() => {
@@ -48,14 +90,6 @@ const ScooterItem = (props) => {
             }}
           >
             Specifications
-          </button>
-          <button
-            className="scooter-item__scroll-to"
-            onClick={() => {
-              scrollTo("shipping");
-            }}
-          >
-            Shipping Rates
           </button>
           <Button type="button" size="small" onClick={addItemHandler}>
             Add to Cart
@@ -67,35 +101,12 @@ const ScooterItem = (props) => {
         <div className="scooter-item__specification-item scooter-item__specification-item--title">
           <span>Engine</span>
           <span>Top Speed</span>
-          <span>Delivery date</span>
           <span>Wheel size</span>
         </div>
         <div className="scooter-item__specification-item scooter-item__specification-item--value">
-          <span>{scooter["Engine Capacity"]}</span>
-          <span>{scooter["Top Speed"]}</span>
-          <span>{scooter["Delivery Date"][3].time} approx.</span>
-          <span>{scooter["Wheel size"]}</span>
-        </div>
-        <div className="scooter-item__section-title">
-          <h2 id="shipping">Shipping rates</h2>
-        </div>
-        <div className="scooter-item__shippings">
-          <table>
-            <thead>
-              <tr>
-                {scooter["Delivery Date"].map((delivery, id) => (
-                  <th key={id}>{delivery.country}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                {scooter["Delivery Date"].map((delivery, id) => (
-                  <td key={id}>{delivery.time}</td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
+          <span>{scooter?.engineCapacity}</span>
+          <span>{scooter?.topSpeed}</span>
+          <span>{scooter?.wheelSize}</span>
         </div>
       </div>
     </>

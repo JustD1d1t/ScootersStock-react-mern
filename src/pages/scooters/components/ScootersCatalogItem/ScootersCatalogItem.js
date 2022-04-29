@@ -15,9 +15,9 @@ import AuthContext from "../../../../context/auth/authContext";
 const ScootersCatalogItem = (props) => {
   const [scooterColor, setScooterColor] = useState(0);
   const dispatch = useDispatch();
-  const image = useRef();
   const { sendRequest } = useHttpClient();
   const authCtx = useContext(AuthContext);
+  console.log(props);
 
   const addItemHandler = () => {
     dispatch(
@@ -56,7 +56,7 @@ const ScootersCatalogItem = (props) => {
       </button>
       <Link to={`/scooters/${props.id}`}>
         <div className="scooters__image">
-          <img ref={image} src={props.colors[scooterColor].url} alt="" />
+          <img src={props.colors[scooterColor].url} alt="" />
         </div>
       </Link>
       <div className="scooters__details">

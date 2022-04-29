@@ -1,14 +1,14 @@
 import styles from "./ScooterColors.module.scss";
 
-const ScooterColors = (props) => {
+const ScooterColors = ({ colors, changeScooterVariant }) => {
   return (
     <div className={styles.scooters__colors}>
-      {props.colors.map((color, id) => (
+      {colors?.map((color, id) => (
         <div
           key={id}
           className="scooters__color"
           style={{ backgroundColor: color.color }}
-          onClick={() => props.changeScooterVariant(id)}
+          onClick={() => changeScooterVariant(id)}
         ></div>
       ))}
     </div>

@@ -8,7 +8,6 @@ const ScootersList = (props) => {
       id={scooter._id}
       name={scooter.name}
       price={scooter.price}
-      image={scooter.image}
       colors={scooter.color}
       rate={scooter.rate}
       openSnackBar={props.openSnackBar}

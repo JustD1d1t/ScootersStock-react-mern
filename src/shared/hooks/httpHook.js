@@ -8,7 +8,7 @@ export const useHttpClient = () => {
 
   const sendRequest = useCallback(
     async (url, method = "GET", body = null, headers = {}) => {
-      setIsLoading(true);
+      // setIsLoading(true);
       const httpAborCtrl = new AbortController();
       activeHttpRequests.current.push(httpAborCtrl);
       try {
@@ -24,7 +24,7 @@ export const useHttpClient = () => {
           (reqCtrl) => reqCtrl !== httpAborCtrl
         );
 
-        setIsLoading(false);
+        // setIsLoading(false);
         return responseData;
       } catch (err) {
         setError(err.message);

@@ -9,7 +9,6 @@ export const Orders = (props) => {
   const [orders, setOrders] = useState([]);
   const authContext = useContext(AuthContext);
   const { isLoading, sendRequest } = useHttpClient();
-
   useEffect(() => {
     const url = `${config.orderUrl}?userId=${authContext.userData.id}`;
     const getOrders = async () => {

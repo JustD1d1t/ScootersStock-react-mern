@@ -33,7 +33,6 @@ const CatalogPage = () => {
   const openSnackBar = () => {
     setOpen(true);
   };
-
   const action = (
     <>
       <IconButton

@@ -8,6 +8,7 @@
   }
   &__image {
     grid-column: 1 / span 2;
+    height: 700px;
     @media screen and(min-width: $medium-breakpoint) {
       grid-column: 1;
     }

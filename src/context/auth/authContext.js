@@ -13,17 +13,17 @@ export const AuthContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      const isTokenExpired = jwt.isTokenExpired(token);
-      if (!isTokenExpired) {
-        const tokenData = jwt.parseJwt(token);
-        setUserData(tokenData);
-        setIsLoggedIn(true);
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     const isTokenExpired = jwt.isTokenExpired(token);
+  //     if (!isTokenExpired) {
+  //       const tokenData = jwt.parseJwt(token);
+  //       setUserData(tokenData);
+  //       setIsLoggedIn(true);
+  //     }
+  //   }
+  // }, []);
   const logoutHandler = () => {
     setIsLoggedIn(false);
     setUserData(null);
