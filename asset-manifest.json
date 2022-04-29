@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ScootersStock-react-mern/static/css/main.84c5aa11.css",
-    "main.js": "/ScootersStock-react-mern/static/js/main.3960f2a6.js",
+    "main.js": "/ScootersStock-react-mern/static/js/main.dbb95a84.js",
     "static/media/banner_scooters.png": "/ScootersStock-react-mern/static/media/banner_scooters.6041757181334dd49e8f.png",
     "static/media/orange-2.png": "/ScootersStock-react-mern/static/media/orange-2.4f7fd019fbb2f96b0ce4.png",
     "static/media/orange.png": "/ScootersStock-react-mern/static/media/orange.4f7fd019fbb2f96b0ce4.png",
@@ -9,10 +9,10 @@
     "static/media/green-2.png": "/ScootersStock-react-mern/static/media/green-2.728da99c3d4034585dff.png",
     "index.html": "/ScootersStock-react-mern/index.html",
     "main.84c5aa11.css.map": "/ScootersStock-react-mern/static/css/main.84c5aa11.css.map",
-    "main.3960f2a6.js.map": "/ScootersStock-react-mern/static/js/main.3960f2a6.js.map"
+    "main.dbb95a84.js.map": "/ScootersStock-react-mern/static/js/main.dbb95a84.js.map"
   },
   "entrypoints": [
     "static/css/main.84c5aa11.css",
-    "static/js/main.3960f2a6.js"
+    "static/js/main.dbb95a84.js"
   ]
 }
