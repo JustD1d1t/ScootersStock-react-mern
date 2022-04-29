@@ -1,27 +1,18 @@
 {
   "files": {
-    "main.css": "/ScootersStock-react-mern/static/css/main.6a79ae9c.css",
-    "main.js": "/ScootersStock-react-mern/static/js/main.7cbcdad4.js",
+    "main.css": "/ScootersStock-react-mern/static/css/main.84c5aa11.css",
+    "main.js": "/ScootersStock-react-mern/static/js/main.6cc0985d.js",
     "static/media/banner_scooters.png": "/ScootersStock-react-mern/static/media/banner_scooters.6041757181334dd49e8f.png",
-    "static/media/green.png": "/ScootersStock-react-mern/static/media/green.168d67e34a584f5f35e0.png",
-    "static/media/black.png": "/ScootersStock-react-mern/static/media/black.4d7794c5f819ac02afd5.png",
     "static/media/orange-2.png": "/ScootersStock-react-mern/static/media/orange-2.4f7fd019fbb2f96b0ce4.png",
     "static/media/orange.png": "/ScootersStock-react-mern/static/media/orange.4f7fd019fbb2f96b0ce4.png",
-    "static/media/White.png": "/ScootersStock-react-mern/static/media/White.f454f2345c323a1f5851.png",
-    "static/media/blue-white-custom.png": "/ScootersStock-react-mern/static/media/blue-white-custom.9c54ef50f0768aa0dcc7.png",
     "static/media/banner_scooters--mobile.png": "/ScootersStock-react-mern/static/media/banner_scooters--mobile.e444368de227670037c1.png",
     "static/media/green-2.png": "/ScootersStock-react-mern/static/media/green-2.728da99c3d4034585dff.png",
-    "static/media/Royal-Alloy-GP-200-LC-Red.png": "/ScootersStock-react-mern/static/media/Royal-Alloy-GP-200-LC-Red.3436cf7f83842e04a444.png",
-    "static/media/White-2.png": "/ScootersStock-react-mern/static/media/White-2.e57cad12ff05db3940c2.png",
-    "static/media/red-white.png": "/ScootersStock-react-mern/static/media/red-white.33ea13aeee243386d728.png",
-    "static/media/Ultra-Blue-Ivory-125cc.png": "/ScootersStock-react-mern/static/media/Ultra-Blue-Ivory-125cc.f4075140631f5c2f7508.png",
-    "static/media/red-ivory-125cc.png": "/ScootersStock-react-mern/static/media/red-ivory-125cc.c9cb4cb85100cefc591c.png",
     "index.html": "/ScootersStock-react-mern/index.html",
-    "main.6a79ae9c.css.map": "/ScootersStock-react-mern/static/css/main.6a79ae9c.css.map",
-    "main.7cbcdad4.js.map": "/ScootersStock-react-mern/static/js/main.7cbcdad4.js.map"
+    "main.84c5aa11.css.map": "/ScootersStock-react-mern/static/css/main.84c5aa11.css.map",
+    "main.6cc0985d.js.map": "/ScootersStock-react-mern/static/js/main.6cc0985d.js.map"
   },
   "entrypoints": [
-    "static/css/main.6a79ae9c.css",
-    "static/js/main.7cbcdad4.js"
+    "static/css/main.84c5aa11.css",
+    "static/js/main.6cc0985d.js"
   ]
 }
