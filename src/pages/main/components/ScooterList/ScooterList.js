@@ -1,48 +1,37 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
 import ScooterItem from "../ScooterItem/ScooterItem";
+import { useHttpClient } from "../../../../shared/hooks/httpHook";
+import { config } from "../../../../utils/config";
 
 import "./ScootersList.scss";
 
-import orange2 from "../../../../static/img/scooters/catalog/orange-2.png";
-import green2 from "../../../../static/img/scooters/catalog/green-2.png";
-import orange from "../../../../static/img/scooters/catalog/orange.png";
-
-const DUMMY_SCOOTERS_MAIN = [
-  {
-    id: 6,
-    name: "GP 125 LC",
-    img: orange2,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod amet mattis tortor sed. Integer ipsum, risus, at varius.",
-  },
-  {
-    id: 4,
-    name: "TG 300S LC",
-    img: green2,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod amet mattis tortor sed. Integer ipsum, risus, at varius.",
-  },
-  {
-    id: 1,
-    name: "GT 50 AC",
-    img: orange,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod amet mattis tortor sed. Integer ipsum, risus, at varius.",
-  },
-];
-
 const ScooterList = (props) => {
-  const scooters = DUMMY_SCOOTERS_MAIN.map((scooter) => (
+  const [scooters, setScooters] = useState([]);
+  const { sendRequest, isLoading } = useHttpClient();
+
+  useEffect(() => {
+    const url = `${config.scootersUrl}?limit=3`;
+    const getScooters = async () => {
+      const response = await sendRequest(url);
+      setScooters(response);
+      console.log(response);
+    };
+    getScooters();
+  }, [sendRequest]);
+
+  const scootersDisplay = scooters.map((scooter) => (
     <ScooterItem
-      key={scooter.id}
+      key={scooter._id}
       name={scooter.name}
-      img={scooter.img}
+      img={scooter.color[0].url}
       description={scooter.description}
       id={scooter.id}
+      isLoading={isLoading}
     />
   ));
-  return <div className="scooters__container">{scooters}</div>;
+  return <div className="scooters__container">{scootersDisplay}</div>;
+  // return <div className="scooters__container">Test</div>;
 };
 
 export default ScooterList;
