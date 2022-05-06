@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ScootersStock-react-mern/static/css/main.6c865448.css",
-    "main.js": "/ScootersStock-react-mern/static/js/main.0b81746e.js",
+    "main.js": "/ScootersStock-react-mern/static/js/main.b3d77e6b.js",
     "static/media/banner_scooters.png": "/ScootersStock-react-mern/static/media/banner_scooters.6041757181334dd49e8f.png",
     "static/media/banner_scooters--mobile.png": "/ScootersStock-react-mern/static/media/banner_scooters--mobile.e444368de227670037c1.png",
     "index.html": "/ScootersStock-react-mern/index.html",
     "main.6c865448.css.map": "/ScootersStock-react-mern/static/css/main.6c865448.css.map",
-    "main.0b81746e.js.map": "/ScootersStock-react-mern/static/js/main.0b81746e.js.map"
+    "main.b3d77e6b.js.map": "/ScootersStock-react-mern/static/js/main.b3d77e6b.js.map"
   },
   "entrypoints": [
     "static/css/main.6c865448.css",
-    "static/js/main.0b81746e.js"
+    "static/js/main.b3d77e6b.js"
   ]
 }
