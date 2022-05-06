@@ -125,7 +125,7 @@ export const ScooterForm = (props) => {
               >
                 <MenuItem value={"Forte"}>Forte</MenuItem>
                 <MenuItem value={"Honda"}>Honda</MenuItem>
-                <MenuItem value={"motoTech"}>Moto Tech</MenuItem>
+                <MenuItem value={"Moto_Tech"}>Moto Tech</MenuItem>
                 <MenuItem value={"Mustang"}>Mustang</MenuItem>
                 <MenuItem value={"Spark"}>Spark</MenuItem>
                 <MenuItem value={"Suzuki"}>Suzuki</MenuItem>

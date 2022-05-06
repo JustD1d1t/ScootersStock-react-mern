@@ -19,7 +19,15 @@ const ScooterPage = () => {
     getScooter();
   }, [sendRequest, scooterId]);
 
-  return <ScooterItem scooter={scooter} />;
+  return (
+    <>
+      {isLoading ? (
+        <LoadingSpinner asOverlay />
+      ) : (
+        <ScooterItem scooter={scooter} />
+      )}
+    </>
+  );
 };
 
 export default ScooterPage;

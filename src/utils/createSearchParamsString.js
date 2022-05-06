@@ -1,5 +1,4 @@
 export const createSearchParamsString = (data) => {
-  console.log(data);
   const params = new URLSearchParams();
   Object.keys(data).forEach((key) => {
     if (Array.isArray(data[key])) {

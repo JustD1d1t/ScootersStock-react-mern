@@ -17,7 +17,6 @@ const ScootersCatalogItem = (props) => {
   const dispatch = useDispatch();
   const { sendRequest } = useHttpClient();
   const authCtx = useContext(AuthContext);
-  console.log(props);
 
   const addItemHandler = () => {
     dispatch(
@@ -38,7 +37,6 @@ const ScootersCatalogItem = (props) => {
       scooterId: props.id,
       userId: authCtx.userData.id,
     };
-    console.log(data);
     const url = `${config.userUrl}/add-to-favourite`;
     const response = await sendRequest(url, "PATCH", JSON.stringify(data), {
       "Content-Type": "application/json",
