@@ -27,6 +27,7 @@ export const ScooterForm = (props) => {
   const [engineCapacity, setEngineCapacity] = useState("");
   const [wheelSize, setWheelSize] = useState("");
   const [seats, setSeats] = useState("");
+  const [country, setCountry] = useState("");
 
   const {
     register,
@@ -52,28 +53,15 @@ export const ScooterForm = (props) => {
   const changeSeats = (event) => {
     setSeats(event.target.value);
   };
+  const changeCountry = (event) => {
+    setCountry(event.target.value);
+  };
 
   const onSubmit = async (data) => {
-    console.log(data);
-    const scooter = {
-      color: [
-        {
-          color: data.colorFirstName,
-          url: data.colorFirstUrl,
-        },
-        {
-          color: data.colorSecondName,
-          url: data.colorSecondUrl,
-        },
-      ],
-      ...data,
-    };
-    console.log(scooter);
     const url = `${config.scootersUrl}/add`;
-    const response = await sendRequest(url, "POST", JSON.stringify(data), {
+    await sendRequest(url, "POST", JSON.stringify(data), {
       "Content-Type": "application/json",
     });
-    console.log(response);
   };
 
   return (
@@ -117,19 +105,6 @@ export const ScooterForm = (props) => {
               margin="dense"
             />
             <InvalidField>{errors.price?.message}</InvalidField>
-            {/* <FormControl fullWidth sx={{ mt: 1 }}>
-              <InputLabel id="manufacturer">Manufacturer</InputLabel>
-              <Select
-                labelId="manufacturer"
-                label="Manufacturer"
-                value={manufacturer}
-                onChange={changeManufacturer}
-                {...register("manufacturer")}
-              >
-                <MenuItem value={"Honda"}>Honda</MenuItem>
-                <MenuItem value={"Suzuki"}>Suzuki</MenuItem>
-              </Select>
-            </FormControl> */}
             <ReactHookFormSelect
               id="manufacturer"
               name="manufacturer"
@@ -140,22 +115,30 @@ export const ScooterForm = (props) => {
               sx={{ mt: 1 }}
               fullWidth
             >
+              <MenuItem value={"Forte"}>Forte</MenuItem>
               <MenuItem value={"Honda"}>Honda</MenuItem>
+              <MenuItem value={"motoTech"}>Moto Tech</MenuItem>
+              <MenuItem value={"Mustang"}>Mustang</MenuItem>
+              <MenuItem value={"Spark"}>Spark</MenuItem>
               <MenuItem value={"Suzuki"}>Suzuki</MenuItem>
+              <MenuItem value={"Viper"}>Viper</MenuItem>
+              <MenuItem value={"Yiben"}>Yiben</MenuItem>
+              <MenuItem value={"Yamaha"}>Yamaha</MenuItem>
             </ReactHookFormSelect>
             <InvalidField>{errors.manufacturer?.message}</InvalidField>
-            <TextField
-              required
+            <ReactHookFormSelect
               id="country"
               name="country"
               label="Country"
-              variant="standard"
-              type="text"
-              {...register("country")}
-              error={errors.country ? true : false}
+              defaultValue={country}
+              onChange={changeCountry}
+              control={control}
+              sx={{ mt: 1 }}
               fullWidth
-              margin="dense"
-            />
+            >
+              <MenuItem value={"Japan"}>Japan</MenuItem>
+              <MenuItem value={"China"}>China</MenuItem>
+            </ReactHookFormSelect>
             <InvalidField>{errors.country?.message}</InvalidField>
             <Grid
               container
