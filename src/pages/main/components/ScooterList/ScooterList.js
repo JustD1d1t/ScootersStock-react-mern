@@ -15,7 +15,6 @@ const ScooterList = (props) => {
     const getScooters = async () => {
       const response = await sendRequest(url);
       setScooters(response);
-      console.log(response);
     };
     getScooters();
   }, [sendRequest]);
@@ -26,7 +25,7 @@ const ScooterList = (props) => {
       name={scooter.name}
       img={scooter.color[0].url}
       description={scooter.description}
-      id={scooter.id}
+      id={scooter._id}
       isLoading={isLoading}
     />
   ));
