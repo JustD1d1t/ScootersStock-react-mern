@@ -56,7 +56,7 @@ export const LoginForm = ({ changeForm }) => {
   };
 
   return (
-    <div>
+    <>
       <BasicModal
         text={modalMessage}
         closeModal={closeModal}
@@ -113,6 +113,6 @@ export const LoginForm = ({ changeForm }) => {
           Login
         </Button>
       </Grid>
-    </div>
+    </>
   );
 };
