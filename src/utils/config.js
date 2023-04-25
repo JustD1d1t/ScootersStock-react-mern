@@ -5,8 +5,8 @@
 //   orderUrl: "https://scooters-stock.herokuapp.com/order",
 // };
 export const config = {
-  url: "http://localhost:4000",
-  userUrl: "http://localhost:4000/scooters-user",
-  scootersUrl: "http://localhost:4000/scooters",
-  orderUrl: "http://localhost:4000/order",
+  url: "https://binance-backend.herokuapp.com/",
+  userUrl: "https://binance-backend.herokuapp.com//scooters-user",
+  scootersUrl: "https://binance-backend.herokuapp.com//scooters",
+  orderUrl: "https://binance-backend.herokuapp.com//order",
 };
